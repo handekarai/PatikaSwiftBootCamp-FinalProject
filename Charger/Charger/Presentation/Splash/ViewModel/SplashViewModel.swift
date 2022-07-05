@@ -6,6 +6,7 @@
 //
 
 import CoreLocation
+import UserNotifications
 
 class SplashViewModel: NSObject {
     
@@ -27,11 +28,26 @@ class SplashViewModel: NSObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    // requests user's location
+    // requests user's location, notification permission
     func requestPermission() {
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        // notification permission
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            
+            if let error = error {
+               print("notification error")
+            }
+            
+            if granted {
+                print("İzin verdi")
+            } else {
+                print("Vermedi")
+            }
+        }
     }
 }
 
