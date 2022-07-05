@@ -6,19 +6,18 @@
 //
 import UIKit
 
-class Style {
+class Theme {
     
     //ui colors
-    static let backgroundColor = UIColor.backgroundColor
-    static let navigationBarBgColor = UIColor.lightGray
-    static let profileCardColor = UIColor.lightGray
-    static let popUpBgColor = UIColor.lightGray
-    static let searchTextFieldBgColor = UIColor.searchTextFieldBgColor
+    static let navigationBarBgColor = UIColor.charcoalGrey
+    static let profileCardColor = UIColor.charcoalGrey
+    static let popUpBgColor = UIColor.charcoalGrey
+    static let searchTextFieldBgColor = UIColor.darkColor
     static let lightButtonBgColor = UIColor.whiteColor
-    static let darkButtonBgColor = UIColor.lightGray
-    static let stationCardBgColor = UIColor.stationCardBgColor
-    static let timeSlotBgColor = UIColor.darkerColor
-    static let appointmentCardColor = UIColor.stationCardBgColor
+    static let darkButtonBgColor = UIColor.charcoalGrey
+    static let stationCardBgColor = UIColor.charcoalGrey
+    static let timeSlotBgColor = UIColor.darkColor
+    static let appointmentCardColor = UIColor.charcoalGrey
     
     //text colors
     static let navigationBarTitleColor = UIColor.whiteColor

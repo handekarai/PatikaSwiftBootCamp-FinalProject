@@ -16,8 +16,8 @@
 		6E1BFBBB286CF4D200796725 /* ChargerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBBA286CF4D200796725 /* ChargerTests.swift */; };
 		6E1BFBC5286CF4D200796725 /* ChargerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBC4286CF4D200796725 /* ChargerUITests.swift */; };
 		6E1BFBC7286CF4D200796725 /* ChargerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBC6286CF4D200796725 /* ChargerUITestsLaunchTests.swift */; };
-		6E1BFBD4286DDE4300796725 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBD3286DDE4300796725 /* Style.swift */; };
-		6E1BFBD6286DE9DC00796725 /* Style+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBD5286DE9DC00796725 /* Style+Extensions.swift */; };
+		6E1BFBD4286DDE4300796725 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBD3286DDE4300796725 /* Theme.swift */; };
+		6E1BFBD6286DE9DC00796725 /* Theme+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBD5286DE9DC00796725 /* Theme+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,8 @@
 		6E1BFBC0286CF4D200796725 /* ChargerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChargerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1BFBC4286CF4D200796725 /* ChargerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerUITests.swift; sourceTree = "<group>"; };
 		6E1BFBC6286CF4D200796725 /* ChargerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6E1BFBD3286DDE4300796725 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		6E1BFBD5286DE9DC00796725 /* Style+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style+Extensions.swift"; sourceTree = "<group>"; };
+		6E1BFBD3286DDE4300796725 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6E1BFBD5286DE9DC00796725 /* Theme+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +110,8 @@
 				6E1BFBAC286CF4D100796725 /* Assets.xcassets */,
 				6E1BFBAE286CF4D100796725 /* LaunchScreen.storyboard */,
 				6E1BFBB1286CF4D100796725 /* Info.plist */,
-				6E1BFBD3286DDE4300796725 /* Style.swift */,
-				6E1BFBD5286DE9DC00796725 /* Style+Extensions.swift */,
+				6E1BFBD3286DDE4300796725 /* Theme.swift */,
+				6E1BFBD5286DE9DC00796725 /* Theme+Extensions.swift */,
 			);
 			path = Charger;
 			sourceTree = "<group>";
@@ -267,8 +267,8 @@
 				6E1BFBA8286CF4CD00796725 /* ViewController.swift in Sources */,
 				6E1BFBA4286CF4CD00796725 /* AppDelegate.swift in Sources */,
 				6E1BFBA6286CF4CD00796725 /* SceneDelegate.swift in Sources */,
-				6E1BFBD4286DDE4300796725 /* Style.swift in Sources */,
-				6E1BFBD6286DE9DC00796725 /* Style+Extensions.swift in Sources */,
+				6E1BFBD4286DDE4300796725 /* Theme.swift in Sources */,
+				6E1BFBD6286DE9DC00796725 /* Theme+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
