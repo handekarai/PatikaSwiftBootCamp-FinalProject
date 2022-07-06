@@ -26,8 +26,8 @@ class Theme {
     static let bodySubtitleColor = UIColor.whiteColor
     static let bodyHeadLineColor = UIColor.whiteColor
     static let cityListItemColor = UIColor.whiteColor
-    static let lightButtonTextColor = UIColor.whiteColor
-    static let darkButtonTextColor = UIColor.darkColor
+    static let lightButtonTextColor = UIColor.darkColor
+    static let darkButtonTextColor = UIColor.whiteColor
     static let stationCardTitleColor = UIColor.whiteColor
     static let stationCardSubTitleColor = UIColor.whiteColor
     static let stationCardBodyColor = UIColor.whiteColor
@@ -43,6 +43,7 @@ class Theme {
     static let navigationBarTitleFont = UIFont.navigationBarTitle
     static let navigationBarSubTitleFont = UIFont.navigationBarSubTitle
     static let bodyTitleFont = UIFont.bodyTitle
+    static let bodyTitleThinFont = UIFont.bodyThinTitle
     static let bodySubtitleFont = UIFont.bodySubtitle
     static let bodyHeadLineFont = UIFont.bodyHeadLine
     static let cityListItemFont = UIFont.cityListItem

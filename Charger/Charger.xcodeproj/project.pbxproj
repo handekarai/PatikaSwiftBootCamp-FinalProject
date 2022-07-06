@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E07BA6B2875E4FA00A0CFEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA9286CF4CD00796725 /* Main.storyboard */; };
+		6E07BA6C2875E50100A0CFEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516F2874AB950045820E /* LoginViewController.swift */; };
 		6E1BFBA4286CF4CD00796725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA3286CF4CD00796725 /* AppDelegate.swift */; };
 		6E1BFBA6286CF4CD00796725 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA5286CF4CD00796725 /* SceneDelegate.swift */; };
 		6E1BFBA8286CF4CD00796725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA7286CF4CD00796725 /* ViewController.swift */; };
-		6E1BFBAB286CF4CD00796725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA9286CF4CD00796725 /* Main.storyboard */; };
 		6E1BFBAD286CF4D100796725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBAC286CF4D100796725 /* Assets.xcassets */; };
 		6E1BFBB0286CF4D100796725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBAE286CF4D100796725 /* LaunchScreen.storyboard */; };
 		6E1BFBBB286CF4D200796725 /* ChargerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBBA286CF4D200796725 /* ChargerTests.swift */; };
@@ -18,9 +19,8 @@
 		6E1BFBC7286CF4D200796725 /* ChargerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBC6286CF4D200796725 /* ChargerUITestsLaunchTests.swift */; };
 		6E1BFBD4286DDE4300796725 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBD3286DDE4300796725 /* Theme.swift */; };
 		6E1BFBD6286DE9DC00796725 /* Theme+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBD5286DE9DC00796725 /* Theme+Extensions.swift */; };
-		6EE451712874AB950045820E /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516B2874AB950045820E /* SplashViewModel.swift */; };
+		6EE451712874AB950045820E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516B2874AB950045820E /* LoginViewModel.swift */; };
 		6EE451722874AB950045820E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516D2874AB950045820E /* Location.swift */; };
-		6EE451732874AB950045820E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516F2874AB950045820E /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +56,9 @@
 		6E1BFBC6286CF4D200796725 /* ChargerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6E1BFBD3286DDE4300796725 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6E1BFBD5286DE9DC00796725 /* Theme+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Extensions.swift"; sourceTree = "<group>"; };
-		6EE4516B2874AB950045820E /* SplashViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		6EE4516B2874AB950045820E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6EE4516D2874AB950045820E /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		6EE4516F2874AB950045820E /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		6EE4516F2874AB950045820E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 		6EE451622874A96B0045820E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				6EE451692874AB950045820E /* Splash */,
+				6EE451692874AB950045820E /* Login */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -180,20 +180,20 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		6EE451692874AB950045820E /* Splash */ = {
+		6EE451692874AB950045820E /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				6EE4516A2874AB950045820E /* ViewModel */,
 				6EE4516C2874AB950045820E /* Model */,
 				6EE4516E2874AB950045820E /* View */,
 			);
-			path = Splash;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		6EE4516A2874AB950045820E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				6EE4516B2874AB950045820E /* SplashViewModel.swift */,
+				6EE4516B2874AB950045820E /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 		6EE4516E2874AB950045820E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6EE4516F2874AB950045820E /* SplashViewController.swift */,
+				6EE4516F2874AB950045820E /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,9 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E07BA6B2875E4FA00A0CFEF /* Main.storyboard in Resources */,
 				6E1BFBB0286CF4D100796725 /* LaunchScreen.storyboard in Resources */,
 				6E1BFBAD286CF4D100796725 /* Assets.xcassets in Resources */,
-				6E1BFBAB286CF4CD00796725 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,11 +348,11 @@
 				6E1BFBA8286CF4CD00796725 /* ViewController.swift in Sources */,
 				6E1BFBA4286CF4CD00796725 /* AppDelegate.swift in Sources */,
 				6E1BFBA6286CF4CD00796725 /* SceneDelegate.swift in Sources */,
-				6EE451712874AB950045820E /* SplashViewModel.swift in Sources */,
+				6EE451712874AB950045820E /* LoginViewModel.swift in Sources */,
 				6E1BFBD4286DDE4300796725 /* Theme.swift in Sources */,
 				6E1BFBD6286DE9DC00796725 /* Theme+Extensions.swift in Sources */,
 				6EE451722874AB950045820E /* Location.swift in Sources */,
-				6EE451732874AB950045820E /* SplashViewController.swift in Sources */,
+				6E07BA6C2875E50100A0CFEF /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

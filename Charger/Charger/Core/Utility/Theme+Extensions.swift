@@ -34,16 +34,19 @@ extension UIColor {
 
 extension UIFont {
     static var navigationBarTitle: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: .semibold)
+        return UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
     static var navigationBarSubTitle: UIFont {
         return UIFont.systemFont(ofSize: 14, weight: .light)
     }
     static var bodyTitle: UIFont {
-        return UIFont.systemFont(ofSize: 18 , weight: .bold)
+        return UIFont.systemFont(ofSize: 22 , weight: .bold)
+    }
+    static var bodyThinTitle: UIFont {
+        return UIFont.systemFont(ofSize: 22 , weight: .regular)
     }
     static var bodySubtitle: UIFont {
-        return UIFont.systemFont(ofSize: 14, weight: .light)
+        return UIFont.systemFont(ofSize: 15, weight: .light)
     }
     static var bodyHeadLine: UIFont {
         return UIFont.systemFont(ofSize: 16, weight: .bold)

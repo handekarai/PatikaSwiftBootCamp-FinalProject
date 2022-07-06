@@ -8,10 +8,10 @@
 import CoreLocation
 import UserNotifications
 
-class SplashViewModel: NSObject {
+class LoginViewModel: NSObject {
     
     // singleton pattern to access the location data anywhere in the project
-    static let shared = SplashViewModel()
+    static let shared = LoginViewModel()
     
     var location: Location?
     var isLocationPermissionGiven: Bool = false
@@ -51,7 +51,7 @@ class SplashViewModel: NSObject {
     }
 }
 
-extension SplashViewModel: CLLocationManagerDelegate{
+extension LoginViewModel: CLLocationManagerDelegate{
     
     // gets user's location
     func locationManager( _ manager: CLLocationManager,didUpdateLocations locations:[CLLocation]) {
