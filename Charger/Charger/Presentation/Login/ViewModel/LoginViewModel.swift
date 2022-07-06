@@ -15,6 +15,7 @@ class LoginViewModel: NSObject {
     
     var location: Location?
     var isLocationPermissionGiven: Bool = false
+    var isNotificationPermissionGiven: Bool = false
     private let locationManager: CLLocationManager
     
     override init() {
@@ -36,17 +37,15 @@ class LoginViewModel: NSObject {
         
         // notification permission
         let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, error in
             
             if let error = error {
                print("notification error")
             }
             
             if granted {
-                print("İzin verdi")
-            } else {
-                print("Vermedi")
-            }
+                self!.isNotificationPermissionGiven = true
+            } 
         }
     }
 }
