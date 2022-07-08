@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var bodyView: UIView!
     
+    var popUp: PopUpView!
+    
     var viewModel: LoginViewModel
     
     init(viewModel: LoginViewModel) {
@@ -73,5 +75,25 @@ class LoginViewController: UIViewController {
         emailTextField.addUnderLine()
         
     }
+            
+    
+    @IBAction func loginButtonTapped(_ sender: Any) {
         
+        //checks e mail is valid or not
+        guard let isValid = emailTextField.text?.isValidEmail() else { return }
+        
+        if isValid{
+            // login
+        }else{
+            // show popup for wrong email
+            self.popUp = PopUpView(frame: self.view.frame)
+            self.popUp.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+            self.view.addSubview(popUp)
+        }
+    }
+    
+    // closes the popup
+    @objc func closeButtonTapped(){
+        self.popUp.removeFromSuperview()
+    }
 }

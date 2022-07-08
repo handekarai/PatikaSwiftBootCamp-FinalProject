@@ -40,10 +40,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 14, weight: .light)
     }
     static var bodyTitle: UIFont {
-        return UIFont.systemFont(ofSize: 22 , weight: .bold)
+        return UIFont.systemFont(ofSize: 24 , weight: .bold)
     }
     static var bodyThinTitle: UIFont {
-        return UIFont.systemFont(ofSize: 22 , weight: .regular)
+        return UIFont.systemFont(ofSize: 24 , weight: .regular)
     }
     static var bodySubtitle: UIFont {
         return UIFont.systemFont(ofSize: 15, weight: .light)
@@ -73,10 +73,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 11, weight: .light)
     }
     static var popUpTitle: UIFont {
-        return UIFont.systemFont(ofSize: 14, weight: .semibold)
+        return UIFont.systemFont(ofSize: 20, weight: .semibold)
     }
     static var popUpSubTitle: UIFont {
-        return UIFont.systemFont(ofSize: 12)
+        return UIFont.systemFont(ofSize: 16, weight: .medium)
     }
     static var appointmentDetailSectionTitle: UIFont {
         return UIFont.systemFont(ofSize: 15 , weight: .semibold)

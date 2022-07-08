@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpView" customModule="Charger" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="ARQ-1F-e7B" id="rMW-1B-Shi"/>
+                <outlet property="descriptionLabel" destination="Y1V-wq-Qjc" id="Nxu-zJ-xU0"/>
+                <outlet property="popUp" destination="rrc-li-1hI" id="h7n-Mm-pbD"/>
+                <outlet property="titleLabel" destination="GKb-NV-oij" id="yfR-1A-YMp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-li-1hI">
+                    <rect key="frame" x="20" y="219" width="374" height="458"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1V-wq-Qjc">
+                            <rect key="frame" x="67" y="238" width="240" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="White"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-NV-oij">
+                            <rect key="frame" x="67" y="176" width="240" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="zon-UW-vek"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="White"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badge2" translatesAutoresizingMaskIntoConstraints="NO" id="FUV-1a-Q0r">
+                            <rect key="frame" x="67" y="40" width="240" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="5ex-NY-9cn"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-1F-e7B">
+                            <rect key="frame" x="97" y="370" width="180" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="KAPAT" cornerStyle="capsule">
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="baseForegroundColor" name="Dark"/>
+                                <color key="baseBackgroundColor" name="White"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="CharcoalGrey"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="FUV-1a-Q0r" secondAttribute="trailing" constant="67" id="3zi-Ht-u4r"/>
+                        <constraint firstItem="GKb-NV-oij" firstAttribute="leading" secondItem="rrc-li-1hI" secondAttribute="leading" constant="67" id="54f-53-2vU"/>
+                        <constraint firstAttribute="trailing" secondItem="Y1V-wq-Qjc" secondAttribute="trailing" constant="67" id="A8A-8m-Wh7"/>
+                        <constraint firstItem="ARQ-1F-e7B" firstAttribute="top" secondItem="Y1V-wq-Qjc" secondAttribute="bottom" constant="111.5" id="BBB-U6-jOb"/>
+                        <constraint firstItem="Y1V-wq-Qjc" firstAttribute="leading" secondItem="rrc-li-1hI" secondAttribute="leading" constant="67" id="BZG-c3-KGt"/>
+                        <constraint firstItem="Y1V-wq-Qjc" firstAttribute="top" secondItem="GKb-NV-oij" secondAttribute="bottom" constant="25" id="Ctv-QB-NxE"/>
+                        <constraint firstItem="ARQ-1F-e7B" firstAttribute="leading" secondItem="rrc-li-1hI" secondAttribute="leading" constant="97" id="FFG-jF-770"/>
+                        <constraint firstAttribute="trailing" secondItem="ARQ-1F-e7B" secondAttribute="trailing" constant="97" id="GbP-Lm-WWC"/>
+                        <constraint firstItem="FUV-1a-Q0r" firstAttribute="top" secondItem="rrc-li-1hI" secondAttribute="top" constant="40" id="JZI-mf-Xih"/>
+                        <constraint firstAttribute="width" constant="374" id="YWd-b4-EIl"/>
+                        <constraint firstItem="FUV-1a-Q0r" firstAttribute="leading" secondItem="rrc-li-1hI" secondAttribute="leading" constant="67" id="byb-V4-mdX"/>
+                        <constraint firstItem="GKb-NV-oij" firstAttribute="top" secondItem="FUV-1a-Q0r" secondAttribute="bottom" constant="8" id="lbc-o9-z9V"/>
+                        <constraint firstAttribute="height" constant="458" id="s1B-hI-iTG"/>
+                        <constraint firstAttribute="trailing" secondItem="GKb-NV-oij" secondAttribute="trailing" constant="67" id="tRi-1o-Acd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="6IF-uj-iN9"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rrc-li-1hI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="D8c-wt-X9c"/>
+                <constraint firstItem="rrc-li-1hI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ivi-Gp-mge"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="69.642857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Badge2" width="130" height="138"/>
+        <namedColor name="CharcoalGrey">
+            <color red="0.2627450980392157" green="0.28627450980392155" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Dark">
+            <color red="0.10196078431372549" green="0.11764705882352941" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
