@@ -13,6 +13,10 @@ class LoginViewModel: NSObject {
     // singleton pattern to access the location data anywhere in the project
     static let shared = LoginViewModel()
     
+    // login model instance
+    private var model = LoginModel()
+    
+    var token: String?
     var location: Location?
     var isLocationPermissionGiven: Bool = false
     var isNotificationPermissionGiven: Bool = false
@@ -44,10 +48,23 @@ class LoginViewModel: NSObject {
             }
             
             if granted {
-                self!.isNotificationPermissionGiven = true
-            } 
+                self?.isNotificationPermissionGiven = true
+            }
         }
     }
+    
+    // login user with email and uuid
+    func doLogin(_ email: String, _ uudi: String) async {
+        
+        let currentUser = User(email: email, deviceUDID: uudi)
+        
+        await model.login(with: currentUser) { [weak self] data in
+            guard let self = self else { return }
+            self.token = data.token
+            print(data.token)
+        }
+    }
+    
 }
 
 extension LoginViewModel: CLLocationManagerDelegate{
@@ -84,3 +101,4 @@ extension LoginViewModel: CLLocationManagerDelegate{
         }
     }
 }
+

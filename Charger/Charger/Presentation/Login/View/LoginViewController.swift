@@ -83,7 +83,12 @@ class LoginViewController: UIViewController {
         guard let isValid = emailTextField.text?.isValidEmail() else { return }
         
         if isValid{
-            // login
+            // login part
+            // access app delegate to get uuid from it
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            Task.init{
+            await viewModel.doLogin(emailTextField.text!, appDelegate.uuid ?? "")
+            }
         }else{
             // show popup for wrong email
             self.popUp = PopUpView(frame: self.view.frame)
