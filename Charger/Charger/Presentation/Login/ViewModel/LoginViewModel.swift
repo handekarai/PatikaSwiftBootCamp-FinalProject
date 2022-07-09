@@ -58,10 +58,15 @@ class LoginViewModel: NSObject {
         
         let currentUser = User(email: email, deviceUDID: uudi)
         
-        await model.login(with: currentUser) { [weak self] data in
+        await model.login(with: currentUser) { [weak self] result in
             guard let self = self else { return }
-            self.token = data.token
-            print(data.token)
+            
+            switch result{
+            case .success(let userAccount):
+                self.token = userAccount.token
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

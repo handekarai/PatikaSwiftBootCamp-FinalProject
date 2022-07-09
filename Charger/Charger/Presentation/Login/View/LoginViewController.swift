@@ -88,6 +88,10 @@ class LoginViewController: UIViewController {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             Task.init{
             await viewModel.doLogin(emailTextField.text!, appDelegate.uuid ?? "")
+                if let token = viewModel.token {
+                    print(token)
+                    goToAppointmentsScreen()
+                }
             }
         }else{
             // show popup for wrong email
@@ -101,4 +105,14 @@ class LoginViewController: UIViewController {
     @objc func closeButtonTapped(){
         self.popUp.removeFromSuperview()
     }
+    
+    // opens appointment screen
+    private func goToAppointmentsScreen(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentsViewController") as? ViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
 }
