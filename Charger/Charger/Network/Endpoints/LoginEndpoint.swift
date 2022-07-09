@@ -9,6 +9,8 @@ import Foundation
 
 struct LoginEndpoint : Endpoint {    
     
+    var body: [String : Any]?
+    
     var path: String {
         return "auth/login"
     }
@@ -20,13 +22,6 @@ struct LoginEndpoint : Endpoint {
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json"
-        ]
-    }
-    
-    var body: [String : String]? {
-        return [
-            "email":"arcelikiotdev@arcelik.com",
-            "deviceUDID":"FFFF424242"
         ]
     }
 }

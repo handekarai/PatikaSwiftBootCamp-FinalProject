@@ -12,7 +12,7 @@ protocol Endpoint {
     var path: String { get }
     var method: HTTPRequest { get }
     var headers: [String: String]? { get }
-    var body: [String: String]? { get }
+    var body: [String : Any]? { get set }
 }
 
 extension Endpoint {

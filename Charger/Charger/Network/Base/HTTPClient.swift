@@ -23,9 +23,9 @@ extension HTTPClient {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.headers
-
+        print(endpoint.body)
         if let body = endpoint.body {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
+            request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         }
         
         do {

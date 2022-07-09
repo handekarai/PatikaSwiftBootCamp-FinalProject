@@ -11,8 +11,9 @@ class LoginModel : HTTPClient {
     
     
     func login(with user: User, _ completion: @escaping (Account)-> Void) async {
-        
-        let result =  await sendRequest(endpoint: LoginEndpoint(), responseModel: Account.self)
+        var endpoint = LoginEndpoint()
+        endpoint.body = (try? user.toDictionary(JSONEncoder())) ?? [:]
+        let result =  await sendRequest(endpoint: endpoint, responseModel: Account.self)
         
         switch result{
         case .success(let userAccount):
