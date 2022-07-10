@@ -16,7 +16,7 @@ class LoginViewModel: NSObject {
     // login model instance
     private var model = LoginModel()
     
-    var token: String?
+    var userAccount: Account?
     var location: Location?
     var isLocationPermissionGiven: Bool = false
     var isNotificationPermissionGiven: Bool = false
@@ -63,7 +63,7 @@ class LoginViewModel: NSObject {
             
             switch result{
             case .success(let userAccount):
-                self.token = userAccount.token
+                self.userAccount = userAccount
             case .failure(let error):
                 print(error)
             }
@@ -89,6 +89,7 @@ extension LoginViewModel: CLLocationManagerDelegate{
         print(error)
     }
     
+    // permission status
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch locationManager.authorizationStatus{
         case .authorizedAlways:

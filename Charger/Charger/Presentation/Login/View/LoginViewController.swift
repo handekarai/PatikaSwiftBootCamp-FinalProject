@@ -88,8 +88,12 @@ class LoginViewController: UIViewController {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             Task.init{
             await viewModel.doLogin(emailTextField.text!, appDelegate.uuid ?? "")
-                if let token = viewModel.token {
-                    print(token)
+                // store account info
+                if let account = viewModel.userAccount {
+                    print(account.userID)
+                    print(account.token)
+                    
+                    // navigate to appointments screen
                     goToAppointmentsScreen()
                 }
             }
