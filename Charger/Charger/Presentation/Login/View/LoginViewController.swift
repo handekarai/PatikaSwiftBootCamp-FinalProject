@@ -31,6 +31,10 @@ class LoginViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +52,9 @@ class LoginViewController: UIViewController {
         appearance.backgroundColor = UIColor.charcoalGrey
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.whiteColor]
         navigationBar.standardAppearance = appearance;
-        navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        if #available(iOS 15.0, *) { // For compatibility with earlier iOS.
+            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        }
         
         //welcome label
         let firstWordAttirubute = [NSAttributedString.Key.font: Theme.bodyTitleFont]
@@ -113,10 +119,9 @@ class LoginViewController: UIViewController {
     // opens appointment screen
     private func goToAppointmentsScreen(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentsViewController") as? ViewController{
+        if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentsViewController") as? AppointmentsViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
     
 }
