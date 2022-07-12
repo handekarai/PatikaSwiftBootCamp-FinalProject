@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppointmentsViewController: UIViewController {
+class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
@@ -16,14 +16,22 @@ class AppointmentsViewController: UIViewController {
     @IBOutlet weak var noAppointmentView: UIView!
     @IBOutlet weak var appointmentListView: UIView!
     
+    
+    let viewModel = AppointmentsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getAppointments()
+    }
+    
 
     private func setupUI(){
         
+        viewModel.delegate = self
         // needed for safe area background color
         view.backgroundColor = UIColor.charcoalGrey
         
@@ -44,12 +52,43 @@ class AppointmentsViewController: UIViewController {
         // add gradient color to background
         bodyBackgroundView.addGradient()
         
+        // body view initially empty, after data fetch body view appears
+        noAppointmentView.alpha = 0
+        appointmentListView.alpha = 0
+        
         // make an appointment button
         makeAppointment.tintColor = Theme.lightButtonBgColor
-        noAppointmentView.alpha = 0.0
+        
+    }
+    
+    private func getAppointments(){
+        Task.init{
+            await viewModel.getAppointments()
+        }
+    }
+    
+    func passedAppointments(data: [Any]) {
+        DispatchQueue.main.async {
+            self.noAppointmentView.alpha = 0
+            self.appointmentListView.alpha = 1
+        }
+    }
+    
+    func currentAppointments(data: [Any]) {
+        DispatchQueue.main.async {
+            self.noAppointmentView.alpha = 0
+            self.appointmentListView.alpha = 1
+        }
+    }
+    
+    func noAppointments() {
+        DispatchQueue.main.async {
+            self.noAppointmentView.alpha = 1
+        }
     }
 
     @IBAction func makeAppointmentTapped(_ sender: Any) {
+
     }
 }
 
