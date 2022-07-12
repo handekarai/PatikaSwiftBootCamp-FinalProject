@@ -17,7 +17,7 @@ class LoginViewModel: NSObject {
     private var model = LoginModel()
     
     var userAccount: Account?
-    var location: Location?
+    var location: CLLocationCoordinate2D?
     var isLocationPermissionGiven: Bool = false
     var isNotificationPermissionGiven: Bool = false
     private let locationManager: CLLocationManager
@@ -48,7 +48,7 @@ class LoginViewModel: NSObject {
             }
             
             if granted {
-                self?.isNotificationPermissionGiven = true
+                LoginViewModel.shared.isNotificationPermissionGiven = true
             }
         }
     }
@@ -64,6 +64,7 @@ class LoginViewModel: NSObject {
             switch result{
             case .success(let userAccount):
                 self.userAccount = userAccount
+                LoginViewModel.shared.userAccount = userAccount
             case .failure(let error):
                 print(error)
             }
@@ -80,7 +81,9 @@ extension LoginViewModel: CLLocationManagerDelegate{
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
             print("\(latitude) \(longitude)");
-            self.location? = Location(latitude: location.coordinate.latitude, longitude:location.coordinate.longitude)
+            self.location = location.coordinate
+            LoginViewModel.shared.location = location.coordinate
+
         }
     }
     
@@ -93,15 +96,15 @@ extension LoginViewModel: CLLocationManagerDelegate{
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch locationManager.authorizationStatus{
         case .authorizedAlways:
-            self.isLocationPermissionGiven = true
+            LoginViewModel.shared.isLocationPermissionGiven = true
         case .authorizedWhenInUse:
-            self.isLocationPermissionGiven = true
+            LoginViewModel.shared.isLocationPermissionGiven = true
         case .denied:
-            self.isLocationPermissionGiven = false
+            LoginViewModel.shared.isLocationPermissionGiven = false
         case .notDetermined:
-            self.isLocationPermissionGiven = false
+            LoginViewModel.shared.isLocationPermissionGiven = false
         case .restricted:
-            self.isLocationPermissionGiven = false
+            LoginViewModel.shared.isLocationPermissionGiven = false
         @unknown default:
             print("error")
         }
