@@ -342,11 +342,13 @@
                     <value key="contentSizeForViewInPopover" type="size" width="414" height="1500"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="currentAppointmentsLabel" destination="Mz0-Sy-GaZ" id="j4T-Qi-0kk"/>
+                        <outlet property="currentAppointmentsTableView" destination="rMM-xw-aKf" id="gTc-0y-DLZ"/>
+                        <outlet property="passedAppointmentsLabel" destination="2Jx-9D-5df" id="GAp-Jf-AjM"/>
+                        <outlet property="passedAppointmentsTableView" destination="AIk-1C-awZ" id="Rle-mO-w4x"/>
                         <outlet property="scroll" destination="ADI-r8-iSo" id="HE8-On-VcX"/>
                         <outlet property="tableViewHeight" destination="ch6-1Z-KBD" id="lnv-un-LBi"/>
                         <outlet property="tableViewHeight2" destination="ROg-ig-Iuy" id="HNG-P2-RKk"/>
-                        <outlet property="tableview1" destination="rMM-xw-aKf" id="gTc-0y-DLZ"/>
-                        <outlet property="tableview2" destination="AIk-1C-awZ" id="Rle-mO-w4x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHM-6N-tKw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

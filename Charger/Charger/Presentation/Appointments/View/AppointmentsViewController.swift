@@ -67,14 +67,14 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
         }
     }
     
-    func passedAppointments(data: [Any]) {
+    func passedAppointments(data: [Appointment]) {
         DispatchQueue.main.async {
             self.noAppointmentView.alpha = 0
             self.appointmentListView.alpha = 1
         }
     }
     
-    func currentAppointments(data: [Any]) {
+    func currentAppointments(data: [Appointment]) {
         DispatchQueue.main.async {
             self.noAppointmentView.alpha = 0
             self.appointmentListView.alpha = 1

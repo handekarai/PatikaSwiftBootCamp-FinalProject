@@ -126,6 +126,7 @@
             <connections>
                 <outlet property="alarmLabel" destination="YMa-sz-Jd8" id="YtC-i2-uRW"/>
                 <outlet property="dateLabel" destination="gVh-oy-zYz" id="lve-ft-IZE"/>
+                <outlet property="deleteButton" destination="Hbz-qK-Rt9" id="pen-jX-V8o"/>
                 <outlet property="miniImageView" destination="k64-fn-g1Q" id="0Zo-79-g52"/>
                 <outlet property="socketNumberLabel" destination="LmV-qe-UbB" id="HVL-sD-kkR"/>
                 <outlet property="socketTypeLabel" destination="Z3J-P4-yxi" id="tnh-IC-ccc"/>

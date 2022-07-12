@@ -16,10 +16,13 @@ class AppointmentTableViewCell: UITableViewCell {
     @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var socketNumberLabel: UILabel!
     @IBOutlet weak var socketTypeLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
