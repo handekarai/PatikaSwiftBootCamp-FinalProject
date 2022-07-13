@@ -11,15 +11,39 @@ protocol AppointmentsViewModelDelegate : AnyObject{
     func passedAppointments(data: [Appointment])
     func currentAppointments(data: [Appointment])
     func noAppointments()
+    func didAppointmentDeleted()
 }
 
 
 class AppointmentsViewModel: NSObject {
     
+    // for singleton
+    static let shared = AppointmentsViewModel()
+    var appointmentID: Int?
+
+    
     weak var delegate: AppointmentsViewModelDelegate?
 
     // appointments model
     let model = AppointmentsModel()
+    
+    
+    func deleteAppointment(_ appointmentID : Int) async {
+        
+        AppointmentsViewModel.shared.appointmentID = appointmentID
+        
+        await model.deleteAppointment(){ [weak self] result in
+            
+            switch result{
+            case .success(_): break
+
+            case .failure(let error):
+                if error.self == .decode{
+                    self?.delegate?.didAppointmentDeleted()
+                }
+            }
+        }
+    }
     
     func getAppointments() async{
         await model.fecthAppointments(){ [weak self] result in

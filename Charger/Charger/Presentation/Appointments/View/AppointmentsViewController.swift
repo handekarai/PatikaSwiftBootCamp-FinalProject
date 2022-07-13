@@ -86,6 +86,10 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
             self.noAppointmentView.alpha = 1
         }
     }
+    
+    func didAppointmentDeleted() {
+        getAppointments()
+    }
 
     @IBAction func makeAppointmentTapped(_ sender: Any) {
 

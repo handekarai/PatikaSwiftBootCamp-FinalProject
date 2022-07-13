@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class AppointmentListViewController: UIViewController, AppointmentsViewModelDelegate {
 
     private var currentAppointmentsList: [Appointment] = []
@@ -120,6 +121,13 @@ class AppointmentListViewController: UIViewController, AppointmentsViewModelDele
             self.passedAppointmentsTableView.isHidden = true
         }
     }
+    
+    func didAppointmentDeleted() {
+        // for UI
+        DispatchQueue.main.async {
+        self.currentAppointmentsTableView.reloadData()
+        }
+    }
 
 }
 // table view delegation
@@ -160,6 +168,12 @@ extension AppointmentListViewController: UITableViewDelegate, UITableViewDataSou
             cell.alarmLabel.text = currentAppointmentsList[indexPath.section].time
             cell.socketNumberLabel.text = "Soket Numarası: \(currentAppointmentsList[indexPath.section].socketID)"
             cell.socketTypeLabel.text = viewModel.getSocketAndChargeType(currentAppointmentsList[indexPath.section])
+          
+            cell.deleteButton.tag = indexPath.section
+            cell.deleteButton.titleLabel?.tag = currentAppointmentsList[indexPath.section].appointmentID
+            cell.deleteButton.addTarget(self, action:#selector(deleteAppointmentCard(_:)), for: .touchUpInside)
+
+            
             return cell
         case passedAppointmentsTableView:
             
@@ -192,6 +206,14 @@ extension AppointmentListViewController: UITableViewDelegate, UITableViewDataSou
         return UITableView.automaticDimension
     }
     
+    @objc func deleteAppointmentCard(_ sender: UIButton) {
+        //for network
+        Task.init{
+            await viewModel.deleteAppointment(sender.titleLabel!.tag)
+        }
+        currentAppointmentsList.remove(at:sender.tag)
+        currentAppointmentsTableView.deleteSections([sender.tag], with: .automatic)
+    }
 
 }
 
