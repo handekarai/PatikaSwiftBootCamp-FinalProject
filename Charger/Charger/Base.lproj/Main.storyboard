@@ -354,6 +354,21 @@
             </objects>
             <point key="canvasLocation" x="1789.8550724637682" y="778.79464285714278"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Spd-bL-JcH">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="Wh9-gb-lNn" customClass="ViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YKA-7v-eVF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mmR-ab-8gp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2S-Ue-qux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="-1"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Badge1" width="130" height="138"/>

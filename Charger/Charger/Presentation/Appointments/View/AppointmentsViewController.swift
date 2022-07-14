@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate {
+class AppointmentsViewController: UIViewController {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
@@ -47,7 +47,7 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
         }
         
         // profile button in navigation bar
-        navigationBarItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Users"), style: .done, target: navigationBarItem, action: nil)
+        navigationBarItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Users"), style: .done, target: self, action: #selector(goToProfileScreen(_:)))
         navigationBarItem.leftBarButtonItem?.tintColor = Theme.navigationBarTitleColor
         
         // add gradient color to background
@@ -68,7 +68,22 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
             await viewModel.getAppointments()
         }
     }
+
+    @IBAction func makeAppointmentTapped(_ sender: Any) {
+        
+    }
     
+    //MARK: - Objc funcs
+    @objc func goToProfileScreen(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+//MARK: - AppointmentsViewModelDelegate funcs
+extension AppointmentsViewController: AppointmentsViewModelDelegate{
     // if there is an passed appointment then show appointment list view
     func passedAppointments(data: [Appointment]) {
         DispatchQueue.main.async {
@@ -100,9 +115,4 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
         }
         
     }
-
-    @IBAction func makeAppointmentTapped(_ sender: Any) {
-        
-    }
-    
 }
