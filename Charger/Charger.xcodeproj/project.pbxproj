@@ -207,6 +207,15 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		6E3BF64828805ED400441C6F /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				6E31F22328764D400095098F /* PopUp.xib */,
+				6E31F225287718390095098F /* PopUpView.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
 		6E913CD5287AEE9B007ACE49 /* Appointments */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +257,7 @@
 		6EE451622874A96B0045820E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6E3BF64828805ED400441C6F /* PopUp */,
 				6E913CD5287AEE9B007ACE49 /* Appointments */,
 				6EE451692874AB950045820E /* Login */,
 			);
@@ -324,8 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				6EE4516F2874AB950045820E /* LoginViewController.swift */,
-				6E31F22328764D400095098F /* PopUp.xib */,
-				6E31F225287718390095098F /* PopUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

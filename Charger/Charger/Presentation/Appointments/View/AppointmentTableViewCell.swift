@@ -20,7 +20,7 @@ class AppointmentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        // make corners smooth
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
     }
@@ -30,7 +30,4 @@ class AppointmentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-    }
-    
 }

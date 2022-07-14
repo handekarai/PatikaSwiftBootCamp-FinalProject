@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Appointment: Codable {
+struct Appointment: Decodable {
     var time, date: String
     var station: Station
     var stationCode, stationName: String
@@ -16,7 +16,7 @@ struct Appointment: Codable {
 }
 
 // MARK: - Station
-struct Station: Codable {
+struct Station: Decodable {
     var id: Int
     var stationCode: String
     var sockets: [Socket]
@@ -28,13 +28,13 @@ struct Station: Codable {
 }
 
 // MARK: - GeoLocation
-struct GeoLocation: Codable {
+struct GeoLocation: Decodable {
     var longitude, latitude: Double
     var province, address: String
 }
 
 // MARK: - Socket
-struct Socket: Codable {
+struct Socket: Decodable {
     var socketID: Int?
     var socketType, chargeType: String?
     var power: Int?

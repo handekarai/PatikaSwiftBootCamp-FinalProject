@@ -32,6 +32,7 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
     private func setupUI(){
         
         viewModel.delegate = self
+        
         // needed for safe area background color
         view.backgroundColor = UIColor.charcoalGrey
         
@@ -61,12 +62,14 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
         
     }
     
+    // call for getting appointment list
     private func getAppointments(){
         Task.init{
             await viewModel.getAppointments()
         }
     }
     
+    // if there is an passed appointment then show appointment list view
     func passedAppointments(data: [Appointment]) {
         DispatchQueue.main.async {
             self.noAppointmentView.alpha = 0
@@ -74,6 +77,7 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
         }
     }
     
+    // if there is an current appointment then show appointment list view
     func currentAppointments(data: [Appointment]) {
         DispatchQueue.main.async {
             self.noAppointmentView.alpha = 0
@@ -81,18 +85,24 @@ class AppointmentsViewController: UIViewController,AppointmentsViewModelDelegate
         }
     }
     
+    // if there is no appointment then show no appointment view
     func noAppointments() {
         DispatchQueue.main.async {
             self.noAppointmentView.alpha = 1
+            self.appointmentListView.alpha = 0
         }
     }
     
-    func didAppointmentDeleted() {
-        getAppointments()
+    // works after appointment cancel is done
+    func didAppointmentDeleted(sectionID: Int) {
+        DispatchQueue.main.async {
+            self.getAppointments()
+        }
+        
     }
 
     @IBAction func makeAppointmentTapped(_ sender: Any) {
-
+        
     }
+    
 }
-
