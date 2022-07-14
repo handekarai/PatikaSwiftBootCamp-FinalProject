@@ -33,8 +33,8 @@ class Theme {
     static let stationCardBodyColor = UIColor.whiteColor
     static let socketSlotTitleColor = UIColor.whiteColor
     static let socketSlotSubTitleColor = UIColor.whiteColor
-    static let popUpTitleColor = UIColor.greyScaleColor
-    static let popUpSubTitleColor = UIColor.greyScaleColor
+    static let popUpTitleColor = UIColor.whiteColor
+    static let popUpSubTitleColor = UIColor.whiteColor
     static let appointmentDetailSectionTitleColor = UIColor.whiteColor
     static let appointmentDetailInfoTitleColor = UIColor.whiteColor
     static let appointmentDetailInfoSubTitleColor = UIColor.whiteColor
