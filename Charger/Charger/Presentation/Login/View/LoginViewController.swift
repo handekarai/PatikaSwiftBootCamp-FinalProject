@@ -31,6 +31,10 @@ class LoginViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +52,9 @@ class LoginViewController: UIViewController {
         appearance.backgroundColor = UIColor.charcoalGrey
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.whiteColor]
         navigationBar.standardAppearance = appearance;
-        navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        if #available(iOS 15.0, *) { // For compatibility with earlier iOS.
+            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        }
         
         //welcome label
         let firstWordAttirubute = [NSAttributedString.Key.font: Theme.bodyTitleFont]
@@ -88,16 +94,18 @@ class LoginViewController: UIViewController {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             Task.init{
             await viewModel.doLogin(emailTextField.text!, appDelegate.uuid ?? "")
-                if let token = viewModel.token {
-                    print(token)
+                // store account info
+                if let account = viewModel.userAccount {
+                    print(account.userID)
+                    print(account.token)
+                    
+                    // navigate to appointments screen
                     goToAppointmentsScreen()
                 }
             }
         }else{
             // show popup for wrong email
-            self.popUp = PopUpView(frame: self.view.frame)
-            self.popUp.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-            self.view.addSubview(popUp)
+            self.showPopUp()
         }
     }
     
@@ -109,10 +117,20 @@ class LoginViewController: UIViewController {
     // opens appointment screen
     private func goToAppointmentsScreen(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentsViewController") as? ViewController{
+        if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentsViewController") as? AppointmentsViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
+    // prepares and show the pop up
+    private func showPopUp(){
+        self.popUp = PopUpView(frame: self.view.frame)
+        self.popUp.titleLabel.text = "Geçersiz E-posta Adresi"
+        self.popUp.descriptionLabel.text = "Lütfen e-posta adresinizi doğru yazdığınızdan emin olunuz."
+        self.popUp.firstOptionButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        self.popUp.firstOptionButton.setTitle("TAMAM", for: .normal)
+        self.popUp.secondOptionButton.isHidden = true
+        self.view.addSubview(popUp)
+    }
     
 }
