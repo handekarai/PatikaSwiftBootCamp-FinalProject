@@ -11,9 +11,10 @@ class PopUpView: UIView {
 
 
     @IBOutlet weak var popUp: UIView!
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var firstOptionButton: UIButton!
+    @IBOutlet weak var secondOptionButton: UIButton!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -28,14 +29,16 @@ class PopUpView: UIView {
         let view = loadXib()
         view.frame = frame
         
-        //label texts
-        titleLabel.text = "Geçersiz E-posta Adresi"
+        //label texts properties
         titleLabel.font = Theme.popUpTitleFont
         titleLabel.textColor = Theme.popUpTitleColor
-        descriptionLabel.text = "Lütfen e-posta adresinizi doğru yazdığınızdan emin olunuz."
         descriptionLabel.font = Theme.popUpSubTitleFont
         descriptionLabel.textColor = Theme.popUpSubTitleColor
         
+        // second option button border
+        secondOptionButton.layer.borderColor = UIColor.greyScaleColor.cgColor
+        secondOptionButton.layer.borderWidth = 0.5
+        secondOptionButton.layer.cornerRadius = secondOptionButton.frame.size.height * 0.5
         // make popop corner more smooth
         popUp.layer.cornerRadius = 10
         addSubview(view)

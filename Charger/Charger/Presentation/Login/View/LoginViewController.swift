@@ -105,9 +105,7 @@ class LoginViewController: UIViewController {
             }
         }else{
             // show popup for wrong email
-            self.popUp = PopUpView(frame: self.view.frame)
-            self.popUp.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-            self.view.addSubview(popUp)
+            self.showPopUp()
         }
     }
     
@@ -122,6 +120,17 @@ class LoginViewController: UIViewController {
         if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentsViewController") as? AppointmentsViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    // prepares and show the pop up
+    private func showPopUp(){
+        self.popUp = PopUpView(frame: self.view.frame)
+        self.popUp.titleLabel.text = "Geçersiz E-posta Adresi"
+        self.popUp.descriptionLabel.text = "Lütfen e-posta adresinizi doğru yazdığınızdan emin olunuz."
+        self.popUp.firstOptionButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        self.popUp.firstOptionButton.setTitle("TAMAM", for: .normal)
+        self.popUp.secondOptionButton.isHidden = true
+        self.view.addSubview(popUp)
     }
     
 }
