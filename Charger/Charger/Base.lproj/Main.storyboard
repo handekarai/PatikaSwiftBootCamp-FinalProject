@@ -354,24 +354,141 @@
             </objects>
             <point key="canvasLocation" x="1789.8550724637682" y="778.79464285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="Spd-bL-JcH">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="Wh9-gb-lNn" customClass="ViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="Wh9-gb-lNn" customClass="ProfileViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKA-7v-eVF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsQ-E5-dfB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kdB-zt-YXD"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Profil" id="NE8-sB-hyU"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpo-Ja-nW8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNh-Ic-yPC">
+                                        <rect key="frame" x="67" y="668" width="280" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="hQt-Qm-WnK"/>
+                                            <constraint firstAttribute="height" constant="50" id="vTz-Yv-NS1"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="ÇIKIŞ YAP" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="baseForegroundColor" name="Dark"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badge" translatesAutoresizingMaskIntoConstraints="NO" id="mzW-9h-8JF">
+                                        <rect key="frame" x="50" y="90" width="314" height="138"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlo-1n-9yA">
+                                        <rect key="frame" x="20" y="286" width="374" height="130"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dsA-nn-wV1">
+                                                <rect key="frame" x="12" y="10" width="350" height="110"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjP-xT-vD0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-posta:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdN-ub-qze">
+                                                                <rect key="frame" x="0.0" y="0.0" width="58.5" height="55"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" name="GrayScale"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jam-BA-IQI">
+                                                                <rect key="frame" x="58.5" y="0.0" width="291.5" height="55"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <color key="textColor" name="White"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-3P-4Sn">
+                                                        <rect key="frame" x="0.0" y="55" width="350" height="55"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cihaz ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lal-5l-kb5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="55"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" name="GrayScale"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVd-CG-n4M">
+                                                                <rect key="frame" x="61.5" y="0.0" width="288.5" height="55"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <color key="textColor" name="White"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="CharcoalGrey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="dsA-nn-wV1" secondAttribute="bottom" constant="10" id="nC4-Hu-hcF"/>
+                                            <constraint firstItem="dsA-nn-wV1" firstAttribute="top" secondItem="xlo-1n-9yA" secondAttribute="top" constant="10" id="osE-vP-NFf"/>
+                                            <constraint firstAttribute="trailing" secondItem="dsA-nn-wV1" secondAttribute="trailing" constant="12" id="vDo-qs-QeS"/>
+                                            <constraint firstItem="dsA-nn-wV1" firstAttribute="leading" secondItem="xlo-1n-9yA" secondAttribute="leading" constant="12" id="vJe-05-ndD"/>
+                                            <constraint firstAttribute="height" constant="130" id="wWQ-dx-ELw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RNh-Ic-yPC" secondAttribute="trailing" constant="67" id="00H-Zs-qvL"/>
+                                    <constraint firstAttribute="trailing" secondItem="mzW-9h-8JF" secondAttribute="trailing" constant="50" id="EvH-mG-8tZ"/>
+                                    <constraint firstItem="xlo-1n-9yA" firstAttribute="leading" secondItem="Jpo-Ja-nW8" secondAttribute="leading" constant="20" id="FHI-Lk-USX"/>
+                                    <constraint firstItem="mzW-9h-8JF" firstAttribute="leading" secondItem="Jpo-Ja-nW8" secondAttribute="leading" constant="50" id="JIV-VJ-819"/>
+                                    <constraint firstAttribute="trailing" secondItem="xlo-1n-9yA" secondAttribute="trailing" constant="20" id="JKv-cQ-l1N"/>
+                                    <constraint firstItem="mzW-9h-8JF" firstAttribute="top" secondItem="Jpo-Ja-nW8" secondAttribute="top" constant="90" id="JRS-jt-tVY"/>
+                                    <constraint firstAttribute="bottom" secondItem="RNh-Ic-yPC" secondAttribute="bottom" constant="90" id="nsE-gn-msa"/>
+                                    <constraint firstItem="xlo-1n-9yA" firstAttribute="top" secondItem="mzW-9h-8JF" secondAttribute="bottom" constant="58" id="ofH-6g-pwk"/>
+                                    <constraint firstItem="RNh-Ic-yPC" firstAttribute="leading" secondItem="Jpo-Ja-nW8" secondAttribute="leading" constant="67" id="tBx-m6-HR4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="mmR-ab-8gp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qsQ-E5-dfB" firstAttribute="top" secondItem="mmR-ab-8gp" secondAttribute="top" id="FA2-Mc-Af0"/>
+                            <constraint firstItem="Jpo-Ja-nW8" firstAttribute="top" secondItem="qsQ-E5-dfB" secondAttribute="bottom" id="Wvt-fl-BLk"/>
+                            <constraint firstItem="qsQ-E5-dfB" firstAttribute="trailing" secondItem="mmR-ab-8gp" secondAttribute="trailing" id="XAV-dZ-nwx"/>
+                            <constraint firstAttribute="bottom" secondItem="Jpo-Ja-nW8" secondAttribute="bottom" id="hDM-Mf-EXw"/>
+                            <constraint firstItem="Jpo-Ja-nW8" firstAttribute="trailing" secondItem="mmR-ab-8gp" secondAttribute="trailing" id="ime-S2-SeX"/>
+                            <constraint firstItem="qsQ-E5-dfB" firstAttribute="leading" secondItem="mmR-ab-8gp" secondAttribute="leading" id="rSw-DI-yPM"/>
+                            <constraint firstItem="Jpo-Ja-nW8" firstAttribute="leading" secondItem="mmR-ab-8gp" secondAttribute="leading" id="wzT-y6-eTX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bodyBackgroundView" destination="Jpo-Ja-nW8" id="D5r-DI-WpE"/>
+                        <outlet property="deviceIdLabel" destination="tVd-CG-n4M" id="qxN-SD-YKe"/>
+                        <outlet property="emailLabel" destination="Jam-BA-IQI" id="Wtt-UH-QbT"/>
+                        <outlet property="logoutButton" destination="RNh-Ic-yPC" id="YEq-Vh-6HL"/>
+                        <outlet property="navigationBar" destination="qsQ-E5-dfB" id="ucQ-1z-uZO"/>
+                        <outlet property="navigationBarItem" destination="NE8-sB-hyU" id="6ud-0C-qNM"/>
+                        <outlet property="profileCardView" destination="xlo-1n-9yA" id="tQy-Ih-owt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2S-Ue-qux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="-1"/>
+            <point key="canvasLocation" x="1971.0144927536232" y="-1.3392857142857142"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Badge" width="130" height="138"/>
         <image name="Badge1" width="130" height="138"/>
+        <namedColor name="CharcoalGrey">
+            <color red="0.2627450980392157" green="0.28627450980392155" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Dark">
             <color red="0.10196078431372549" green="0.11764705882352941" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

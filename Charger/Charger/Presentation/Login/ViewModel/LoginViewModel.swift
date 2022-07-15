@@ -16,6 +16,7 @@ class LoginViewModel: NSObject {
     // login model instance
     private var model = LoginModel()
     
+    var user: User?
     var userAccount: Account?
     var location: CLLocationCoordinate2D?
     var isLocationPermissionGiven: Bool = false
@@ -57,6 +58,7 @@ class LoginViewModel: NSObject {
     func doLogin(_ email: String, _ uudi: String) async {
         
         let currentUser = User(email: email, deviceUDID: uudi)
+        LoginViewModel.shared.user = currentUser
         
         await model.login(with: currentUser) { [weak self] result in
             guard let self = self else { return }

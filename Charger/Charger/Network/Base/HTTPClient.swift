@@ -23,7 +23,7 @@ extension HTTPClient {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.headers
-        print(endpoint.body)
+
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         }
@@ -36,6 +36,15 @@ extension HTTPClient {
             switch response.statusCode {
             case 200:
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
+                    if data.isEmpty {
+                        switch endpoint{
+                        case is LogoutEndpoint,is DeleteAppointmentEndpoint:
+                            // that case is only valid for logout and delete processes
+                            return .failure(.successCodeWithNoReturnObject)
+                        default:
+                            break
+                        }
+                    }
                     return .failure(.decode)
                 }
                 return .success(decodedResponse)
