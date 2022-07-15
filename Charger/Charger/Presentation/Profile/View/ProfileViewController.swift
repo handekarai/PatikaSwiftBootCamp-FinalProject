@@ -67,22 +67,41 @@ class ProfileViewController: UIViewController {
 
         //logout button
         logoutButton.tintColor = Theme.lightButtonBgColor
-
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped(_:)), for: .touchUpInside)
     }
     
+    // MARK: - Objc funcs
+    // logouts the user
+    @objc func logoutButtonTapped(_ sender: Any) {
+        Task.init {
+            await viewModel.doLogout()
+        }
+    }
+    
+    // goes back to previous screen
     @objc func goToBack(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
 
 }
 
+// MARK: - ProfileViewModelDelegate funcs
 extension ProfileViewController: ProfileViewModelDelegate {
     
+    // gets user email
     func didUserEmailFecthed(data: String) {
         emailLabel.text = data
     }
     
+    // gets device id
     func didUserDeviceIDFecthed(data: String) {
         deviceIdLabel.text = data
+    }
+    
+    // goes back to app's first screen
+    func didUserLogout() {
+        DispatchQueue.main.async {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
