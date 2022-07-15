@@ -17,10 +17,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var deviceIdLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
     
+    let viewModel = ProfileViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.delegate = self
+        
+        getData()
         setupUI()
+    }
+    
+    // get user email and device id
+    private func getData(){
+        viewModel.getUserEmail()
+        viewModel.getUserDeviceID()
     }
     
     private func setupUI(){
@@ -63,4 +74,15 @@ class ProfileViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+}
+
+extension ProfileViewController: ProfileViewModelDelegate {
+    
+    func didUserEmailFecthed(data: String) {
+        emailLabel.text = data
+    }
+    
+    func didUserDeviceIDFecthed(data: String) {
+        deviceIdLabel.text = data
+    }
 }
