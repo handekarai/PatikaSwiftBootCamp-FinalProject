@@ -26,9 +26,10 @@ class AppointmentsViewModel: NSObject {
     var appointmentID: Int?                                 // appointment ID it is for singleton pattern
     weak var delegate: AppointmentsViewModelDelegate?       // for delegation pattern to its view controllers
     
-    /* my network layer returns decode error when there are success code 200 and no object returns from network
-       for that reason implemented delegation pattern in failure part with decode error
-       it means delete appointment succesfully done, if something returns with 200 code it would be nice*/
+    /* my network layer returns successCodeWithNoReturnObject error
+     when there are success code 200 and no object returns from network
+     for that reason implemented delegation pattern in failure part with successCodeWithNoReturnObject error
+     it means delete appointment succesfully done, if something returns with 200 code it would be nice */
     func deleteAppointment( appointmentID : Int,  sectionID: Int) async {
         
         // deleteAppointmentEndpoint.swift takes that argument to put the Url path
@@ -40,7 +41,7 @@ class AppointmentsViewModel: NSObject {
             case .success(_): break
 
             case .failure(let error):
-                if error.self == .decode{
+                if error.self == .successCodeWithNoReturnObject{
                     self?.delegate?.didAppointmentDeleted(sectionID: sectionID)
                 }
             }
