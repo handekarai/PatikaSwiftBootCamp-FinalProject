@@ -30,9 +30,10 @@ class ProfileViewModel: NSObject {
         self.delegate?.didUserDeviceIDFecthed(data: model.fetchUserDeviceID())
     }
     
-    /* my network layer returns decode error when there are success code 200 and no object returns from network
-       for that reason implemented delegation pattern in failure part with decode error
-       it means user logouts succesfully, if something returns with 200 code it would be nice*/
+    /* my network layer returns successCodeWithNoReturnObject error
+     when there are success code 200 and no object returns from network
+     for that reason implemented delegation pattern in failure part with successCodeWithNoReturnObject error
+     it means user logouts succesfully, if something returns with 200 code it would be nice*/
     func doLogout() async {
             await model.logout(){ [weak self] result in
                 
@@ -40,7 +41,7 @@ class ProfileViewModel: NSObject {
                 case .success(_): break
 
                 case .failure(let error):
-                    if error.self == .decode{
+                    if error.self == .successCodeWithNoReturnObject{
                         self?.delegate?.didUserLogout()
                     }
                 }

@@ -20,4 +20,5 @@ enum RequestError: Error {
     case unauthorized
     case unexpectedStatusCode
     case unknown
+    case successCodeWithNoReturnObject
 }
