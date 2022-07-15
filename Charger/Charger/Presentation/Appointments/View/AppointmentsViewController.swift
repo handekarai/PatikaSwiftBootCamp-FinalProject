@@ -68,9 +68,12 @@ class AppointmentsViewController: UIViewController {
             await viewModel.getAppointments()
         }
     }
-
+    //make appointment button's action opens city selection screen
     @IBAction func makeAppointmentTapped(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "CitySelectionViewController") as? CitySelectionViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     //MARK: - Objc funcs
