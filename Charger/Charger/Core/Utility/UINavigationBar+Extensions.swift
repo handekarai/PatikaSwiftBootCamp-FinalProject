@@ -10,7 +10,7 @@ import UIKit
 extension UINavigationBar {
    
     //sets navigation bar appearance to avoid different appearance which comes with ios15
-    func addApparance () {
+    func addAppearance () {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.charcoalGrey
