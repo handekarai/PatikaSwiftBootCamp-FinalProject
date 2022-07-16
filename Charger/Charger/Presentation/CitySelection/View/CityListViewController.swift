@@ -110,7 +110,12 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(searching ? self.searchedCityList[indexPath.row] : self.cityList[indexPath.row])
+        // open station selection page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "StationSelectionViewController") as? StationSelectionViewController{
+            vc.selectedCity =  searching ? self.searchedCityList[indexPath.row] : self.cityList[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
