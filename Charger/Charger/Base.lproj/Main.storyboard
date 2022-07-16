@@ -591,18 +591,19 @@
                                 <color key="textColor" name="White"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lütfen yeni bir arama yapın." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-2I-c5H">
-                                <rect key="frame" x="107" y="349" width="200" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lütfen yeni bir arama yapın." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-2I-c5H">
+                                <rect key="frame" x="77" y="349" width="260" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="GrayScale"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="XLl-XA-ZRw"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mmi-2I-c5H" firstAttribute="leading" secondItem="3ZO-Oo-68C" secondAttribute="leadingMargin" constant="87" id="096-a3-xt4"/>
+                            <constraint firstItem="mmi-2I-c5H" firstAttribute="leading" secondItem="3ZO-Oo-68C" secondAttribute="leadingMargin" constant="57" id="096-a3-xt4"/>
                             <constraint firstItem="EaV-Ix-1yT" firstAttribute="trailing" secondItem="3ZO-Oo-68C" secondAttribute="trailingMargin" id="AdY-W4-RAY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mmi-2I-c5H" secondAttribute="trailing" constant="87" id="Feb-CE-TOU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mmi-2I-c5H" secondAttribute="trailing" constant="57" id="Feb-CE-TOU"/>
                             <constraint firstItem="mmi-2I-c5H" firstAttribute="top" secondItem="EaV-Ix-1yT" secondAttribute="bottom" constant="25" id="GT2-WF-PZh"/>
                             <constraint firstItem="EaV-Ix-1yT" firstAttribute="top" secondItem="3ZO-Oo-68C" secondAttribute="topMargin" constant="220" id="M36-LW-egN"/>
                             <constraint firstItem="EaV-Ix-1yT" firstAttribute="leading" secondItem="3ZO-Oo-68C" secondAttribute="leadingMargin" id="MQP-iQ-MOF"/>
@@ -650,6 +651,7 @@
                                 <sections/>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="9hi-HB-0zq"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="SV8-hU-cSg" secondAttribute="bottom" id="3kQ-p4-Xsz"/>

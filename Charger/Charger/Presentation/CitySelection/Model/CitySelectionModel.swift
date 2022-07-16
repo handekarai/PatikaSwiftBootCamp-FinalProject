@@ -11,6 +11,7 @@ class CitySelectionModel: HTTPClient {
     
     typealias City = [String]
     
+    // fetches city list from api
     func fecthCityList(_ completion: @escaping (Result<City,RequestError>)-> Void) async {
         let endpoint = CityEndpoint()
         let result =  await sendRequest(endpoint: endpoint, responseModel: City.self)
