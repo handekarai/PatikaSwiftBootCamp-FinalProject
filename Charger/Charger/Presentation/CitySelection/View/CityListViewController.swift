@@ -16,6 +16,7 @@ class CityListViewController: UIViewController {
     var cityList: [String] = []                     // list coming from api
     var searchedCityList: [String] = []             // filtered list
     var searching: Bool = false                     // determines which list will be used in table view delegate funcs
+    var searchedTextLength: Int = 0                 // searched text length during filtering
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +50,24 @@ class CityListViewController: UIViewController {
         self.cityListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    // changes specific part of text to bold
+    private func changeTextAttributesWithSpecificRange(with searchedTextLength: Int, _ completeStringWithAttributedText: String) -> NSMutableAttributedString {
+        
+        // bold attribute
+        let boldAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .heavy)]
+  
+        // create mutable attributed string & bold matching part
+        let newAttributedText = NSMutableAttributedString(string: completeStringWithAttributedText)
+        newAttributedText.setAttributes(boldAttribute, range: NSMakeRange(0, searchedTextLength))
+    
+        return newAttributedText
+    }
+    
     // changes searching to true so tableview uses searchedCityList data, reloads table view
     @objc func handleFilteredListNotification(_ notification: NSNotification) {
         if let dict = notification.userInfo as NSDictionary? {
             if let list = dict["filteredList"] as? [String] {
+                self.searchedTextLength = dict["searchedTextLength"] as! Int
                 self.searchedCityList = list
                 self.searching = true
                 self.cityListTableView.reloadData()
@@ -79,12 +94,18 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-
+       
         // set the text value
-        cell.textLabel?.text = searching ? self.searchedCityList[indexPath.row] : self.cityList[indexPath.row]
-        cell.textLabel?.textColor = Theme.cityListItemColor
-        cell.textLabel?.font = Theme.cityListItemFont
+        let cellTextLabel = searching ? self.searchedCityList[indexPath.row] : self.cityList[indexPath.row]
         
+        // arrange text's font according to searching situation
+        if searching {
+            cell.textLabel?.attributedText = changeTextAttributesWithSpecificRange(with: self.searchedTextLength, cellTextLabel)
+        }else{
+            cell.textLabel?.text = cellTextLabel
+            cell.textLabel?.textColor = Theme.cityListItemColor
+            cell.textLabel?.font = Theme.cityListItemFont
+        }
         return cell
     }
     

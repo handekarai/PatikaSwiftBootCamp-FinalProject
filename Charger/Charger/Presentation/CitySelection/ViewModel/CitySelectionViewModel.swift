@@ -34,7 +34,7 @@ class CitySelectionViewModel: NSObject {
     // filters citylist and notifies view controllers to change their views
     func filterCityList(searchedText: String, cityList: [String]) {
         let searchedCityList = cityList.filter { $0.lowercased().prefix(searchedText.count) == searchedText.lowercased() }
-        let notificationDict: [String : [String]] = ["filteredList":searchedCityList]
+        let notificationDict: [String : Any] = ["filteredList": searchedCityList, "searchedTextLength": searchedText.count ]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FilteredListNotification"), object: nil, userInfo: notificationDict)
     }
     
