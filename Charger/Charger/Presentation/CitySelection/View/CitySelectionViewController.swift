@@ -14,14 +14,25 @@ class CitySelectionViewController: UIViewController {
     @IBOutlet weak var bodyBackgroundView: UIView!
     @IBOutlet weak var upperBodyView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var cityListView: UIView!
+    @IBOutlet weak var noCityView: UIView!
+    
+    let viewModel = CitySelectionViewModel()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.delegate = self
+        
         setupUI()
+        getCityList()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        getCityList()
+    }
+    
     private func setupUI(){
         // needed for safe area background color
         view.backgroundColor = UIColor.charcoalGrey
@@ -54,6 +65,16 @@ class CitySelectionViewController: UIViewController {
         searchBar.searchTextField.leftView?.tintColor = UIColor.whiteColor
         searchBar.searchTextField.textColor = UIColor.whiteColor
         
+        // set views alphas zero
+        noCityView.alpha = 0
+        cityListView.alpha = 0
+    }
+    
+    // call for getting city list
+    private func getCityList() {
+        Task.init{
+            await viewModel.getCityList()
+        }
     }
     
     // goes back to previous screen
@@ -61,4 +82,15 @@ class CitySelectionViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+}
+
+extension CitySelectionViewController: CitySelectionViewModelDelegate {
+    
+    func didCityListFetched(data: [String]) {
+        
+        DispatchQueue.main.async {
+            self.cityListView.alpha = 1
+            self.noCityView.alpha = 0
+        }
+    }
 }
