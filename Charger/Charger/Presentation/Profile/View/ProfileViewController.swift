@@ -40,14 +40,7 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = UIColor.charcoalGrey
         
         //navigation bar appearance to avoid different appearance which comes with ios15
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.charcoalGrey
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.whiteColor]
-        navigationBar.standardAppearance = appearance;
-        if #available(iOS 15.0, *) { // For compatibility with earlier iOS.
-            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
-        }
+        navigationBar.addAppearance()
         
         // back button color
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(goToBack(_:)))

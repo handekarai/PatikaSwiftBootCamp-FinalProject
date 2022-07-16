@@ -56,7 +56,7 @@ class CitySelectionViewController: UIViewController {
         view.backgroundColor = UIColor.charcoalGrey
         
         //navigation bar appearance to avoid different appearance which comes with ios15
-        navigationBar.addApparance()
+        navigationBar.addAppearance()
         
         // set back button image and color
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(goToBack(_:)))
