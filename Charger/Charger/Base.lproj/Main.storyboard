@@ -238,13 +238,13 @@
                                 <rect key="frame" x="32" y="290" width="350" height="108.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henüz bir randevu oluşturmadınız." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsW-c2-dhP">
-                                        <rect key="frame" x="66.5" y="0.0" width="217" height="41.5"/>
+                                        <rect key="frame" x="66.5" y="0.0" width="217" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oluşturulan randevular burada listelenir." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-CL-IXT">
-                                        <rect key="frame" x="31" y="70.5" width="288" height="38"/>
+                                        <rect key="frame" x="31" y="89" width="288" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="GrayScale"/>
                                         <nil key="highlightedColor"/>
@@ -576,6 +576,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aj8-c6-APk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2869.5652173913045" y="-1.3392857142857142"/>
+        </scene>
+        <!--Station Selection View Controller-->
+        <scene sceneID="9Ia-4U-8gV">
+            <objects>
+                <viewController storyboardIdentifier="StationSelectionViewController" id="lNy-Fp-56i" customClass="StationSelectionViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zTA-ER-c4w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H88-py-9YW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mde-tr-GJ4"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="İstasyon Seçin" id="bru-zw-JyW"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7m-ag-C05">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQ4-Ao-UtQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cfF-H9-Nm1">
+                                                <rect key="frame" x="15" y="20" width="384" height="45"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cfF-H9-Nm1" secondAttribute="trailing" constant="15" id="0ru-Af-30y"/>
+                                            <constraint firstAttribute="height" constant="85" id="Hft-be-Cv5"/>
+                                            <constraint firstAttribute="bottom" secondItem="cfF-H9-Nm1" secondAttribute="bottom" constant="20" id="RS1-Db-5Tq"/>
+                                            <constraint firstItem="cfF-H9-Nm1" firstAttribute="leading" secondItem="BQ4-Ao-UtQ" secondAttribute="leading" constant="15" id="pUT-Wh-0f8"/>
+                                            <constraint firstItem="cfF-H9-Nm1" firstAttribute="top" secondItem="BQ4-Ao-UtQ" secondAttribute="top" constant="20" id="ynz-uI-JOH"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A5J-sk-wwJ">
+                                        <rect key="frame" x="0.0" y="85" width="414" height="723"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BQ4-Ao-UtQ" firstAttribute="top" secondItem="t7m-ag-C05" secondAttribute="top" id="CyU-lv-tK0"/>
+                                    <constraint firstItem="A5J-sk-wwJ" firstAttribute="top" secondItem="BQ4-Ao-UtQ" secondAttribute="bottom" id="DsM-ND-eGa"/>
+                                    <constraint firstItem="BQ4-Ao-UtQ" firstAttribute="leading" secondItem="t7m-ag-C05" secondAttribute="leading" id="JHr-LU-wXf"/>
+                                    <constraint firstAttribute="trailing" secondItem="BQ4-Ao-UtQ" secondAttribute="trailing" id="JsB-Qn-mpF"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5J-sk-wwJ" secondAttribute="trailing" id="YI4-NY-NMw"/>
+                                    <constraint firstItem="A5J-sk-wwJ" firstAttribute="leading" secondItem="t7m-ag-C05" secondAttribute="leading" id="kkj-fo-k81"/>
+                                    <constraint firstAttribute="bottom" secondItem="A5J-sk-wwJ" secondAttribute="bottom" id="r97-1e-mc1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gv1-FY-hPs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="H88-py-9YW" firstAttribute="leading" secondItem="gv1-FY-hPs" secondAttribute="leading" id="DXW-Ue-DAr"/>
+                            <constraint firstItem="H88-py-9YW" firstAttribute="top" secondItem="gv1-FY-hPs" secondAttribute="top" id="VRc-MG-8YW"/>
+                            <constraint firstItem="t7m-ag-C05" firstAttribute="top" secondItem="H88-py-9YW" secondAttribute="bottom" id="Vnw-xf-Vrp"/>
+                            <constraint firstItem="gv1-FY-hPs" firstAttribute="trailing" secondItem="t7m-ag-C05" secondAttribute="trailing" id="Yz7-bu-PV6"/>
+                            <constraint firstItem="t7m-ag-C05" firstAttribute="leading" secondItem="gv1-FY-hPs" secondAttribute="leading" id="Z9J-Dn-Y2g"/>
+                            <constraint firstItem="H88-py-9YW" firstAttribute="trailing" secondItem="gv1-FY-hPs" secondAttribute="trailing" id="fwb-GT-3Vr"/>
+                            <constraint firstAttribute="bottom" secondItem="t7m-ag-C05" secondAttribute="bottom" id="lvI-tX-XwL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bodyBackgroundView" destination="t7m-ag-C05" id="OZs-rd-jkh"/>
+                        <outlet property="navigationBar" destination="H88-py-9YW" id="QbO-xA-xQI"/>
+                        <outlet property="navigationBarItem" destination="bru-zw-JyW" id="iUh-Jk-xOk"/>
+                        <outlet property="searchBar" destination="cfF-H9-Nm1" id="bgl-T2-TFN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9N-RA-MD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3795.652173913044" y="-1.3392857142857142"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OBq-rC-Xf6">
