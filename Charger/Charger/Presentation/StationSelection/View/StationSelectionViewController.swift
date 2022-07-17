@@ -147,14 +147,16 @@ extension StationSelectionViewController: StationSelectionViewModelDelegate {
         // UI changes must be in main thread
         DispatchQueue.main.async {
             /* if selected city has no station, shows noStationView,
-             search bar disabled to user interaction (disabling search bar is my approach
+             search bar and filter button are disabled to user interaction (disabling search bar is my approach
              because there is no information about that situtaion in documents) */
             if data.isEmpty {
+                self.navigationBarItem.rightBarButtonItem?.isEnabled = false
                 self.searchBar.isUserInteractionEnabled = false
                 self.searchBar.alpha = 0.5
                 self.noStationView.alpha = 1
                 self.stationView.alpha = 0
             }else {
+                self.navigationBarItem.rightBarButtonItem?.isEnabled = true
                 self.searchBar.isUserInteractionEnabled = true
                 self.searchBar.alpha = 1
                 self.stationList = data
