@@ -23,3 +23,16 @@ City Selection ( if city has no station )
 Station Selection 
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 22 46](https://user-images.githubusercontent.com/3129441/179425287-96ee1e2e-a19f-457c-b07b-7dc4d422e199.gif)
+
+Show & Delete Appointments
+I haven't implemented create appointment screen yet, because of this I created appointment with my device id and user ID in postman and tested it in similator to see appointments in screen. When user press delete button , appointment is deleted from screen and server(I checked it from postman to see deletion from server).
+
+![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 57 01](https://user-images.githubusercontent.com/3129441/179426293-5fce1fc3-5343-4dbb-8e8e-54cdb3dcf7db.gif)
+
+After appointment time has passed , appointment will be shown in past appointments.
+
+![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 01 02 08](https://user-images.githubusercontent.com/3129441/179426553-6477eee9-453e-49c8-bda9-40797e4a7272.gif)
+
+If user does not give location permission, then kilometer info is not shown to user in station list and list order is not according to kilometers. Otherwise station list will be shown increasing order according to kilometers.
+
+
