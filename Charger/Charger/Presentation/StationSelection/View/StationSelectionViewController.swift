@@ -13,16 +13,30 @@ class StationSelectionViewController: UIViewController {
     @IBOutlet weak var navigationBarItem: UINavigationItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var bodyBackgroundView: UIView!
+    @IBOutlet weak var noStationView: UIView!
+    @IBOutlet weak var stationView: UIView!
+        
+    let viewModel = StationSelectionViewModel()
     
     var selectedCity: String = ""
+    var stationList: [Station] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
+        getStationList()
+    }
+    
+    private func getStationList() {
+        Task.init{
+            await viewModel.getStationList()
+        }
     }
     
     private func setupUI () {
+        
+        viewModel.delegate = self
         
         // needed for safe area background color
         view.backgroundColor = UIColor.charcoalGrey
@@ -67,6 +81,20 @@ extension StationSelectionViewController: UISearchBarDelegate {
             
         }else{
             
+        }
+    }
+}
+
+// MARK: - StationSelectionViewModelDelegate funcs
+extension StationSelectionViewController: StationSelectionViewModelDelegate {
+    
+    // makes invisible noStationView , shows stationView
+    func didStationListFetched(data: [Station]) {
+        // UI changes must be in main thread
+        DispatchQueue.main.async {
+            self.stationList = data
+            self.noStationView.alpha = 0
+            self.stationView.alpha = 1
         }
     }
 }
