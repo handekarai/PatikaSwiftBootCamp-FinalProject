@@ -15,7 +15,7 @@ class StationSelectionViewController: UIViewController {
     @IBOutlet weak var bodyBackgroundView: UIView!
     @IBOutlet weak var noStationView: UIView!
     @IBOutlet weak var stationView: UIView!
-        
+            
     let viewModel = StationSelectionViewModel()
     
     var selectedCity: String = ""
@@ -29,6 +29,9 @@ class StationSelectionViewController: UIViewController {
         
         let notificationDict = ["selectedCity": selectedCity]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil, userInfo: notificationDict)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFilteredStaionListNotification(_:)), name: NSNotification.Name(rawValue: "FilteredStationListNotification"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNoStationFilterNotification(_:)), name: NSNotification.Name(rawValue: "NoStationFilterNotification"), object: nil)
     }
     
     private func getStationList(for selectedCity : String) {
@@ -67,6 +70,31 @@ class StationSelectionViewController: UIViewController {
         searchBar.searchTextField.textColor = UIColor.whiteColor
     }
     
+    //MARK: - Objc functions
+    // change search bar border color and view's visibility acccording to station list data
+    @objc func handleFilteredStaionListNotification(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let list = dict["filteredList"] as? [Station] {
+                if list.isEmpty {
+                    self.stationView.alpha = 0
+                    self.noStationView.alpha = 1
+                    self.searchBar.layer.borderColor = UIColor.securityOnColor.cgColor
+                }else {
+                    self.stationView.alpha = 1
+                    self.noStationView.alpha = 0
+                    self.searchBar.layer.borderColor = UIColor.primaryColor.cgColor
+                }
+            }
+        }
+    }
+    
+    // change view to initial state
+    @objc func handleNoStationFilterNotification(_ notification: NSNotification) {
+        self.stationView.alpha = 1
+        self.noStationView.alpha = 0
+        self.searchBar.layer.borderColor = UIColor.greyScaleColor.cgColor
+    }
+    
     // goes back to previous screen
     @objc func goToBack(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
@@ -81,9 +109,9 @@ extension StationSelectionViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // if clear(X) button is pressed , do not need filter
         if searchText.isEmpty{
-
+            viewModel.noFilter()
         }else{
-            
+            viewModel.filterStationList(searchedText: searchText, stationList: self.stationList)
         }
     }
 }
@@ -93,13 +121,20 @@ extension StationSelectionViewController: StationSelectionViewModelDelegate {
     
     // makes invisible noStationView , shows stationView
     func didStationListFetched(data: [Station]) {
+        
         // UI changes must be in main thread
         DispatchQueue.main.async {
-            // if selected city has no station, show noStationView
+            /* if selected city has no station, shows noStationView,
+             search bar disabled to user interaction (disabling search bar is my approach
+             because there is no information about that situtaion in documents) */
             if data.isEmpty {
+                self.searchBar.isUserInteractionEnabled = false
+                self.searchBar.alpha = 0.5
                 self.noStationView.alpha = 1
                 self.stationView.alpha = 0
             }else {
+                self.searchBar.isUserInteractionEnabled = true
+                self.searchBar.alpha = 1
                 self.stationList = data
                 self.noStationView.alpha = 0
                 self.stationView.alpha = 1

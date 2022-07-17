@@ -29,6 +29,19 @@ class StationSelectionViewModel: NSObject {
     
     weak var delegate: StationSelectionViewModelDelegate?
     
+    // filters stationlist and notifies view controllers to change their views
+    func filterStationList(searchedText: String, stationList: [Station]) {
+        let searchedStationList = stationList.filter { $0.stationName.lowercased().prefix(searchedText.count) == searchedText.lowercased() }
+        let notificationDict: [String : [Station]] = ["filteredList": searchedStationList]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FilteredStationListNotification"), object: nil, userInfo: notificationDict)
+    }
+    
+    // notifies view controllers to restart their views to first state
+    func noFilter(){
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NoStationFilterNotification"), object: nil)
+    }
+    
+    
     // gets image name according to socket types of station
     func getImageName(_ sockets: [Socket]) -> String {
         
@@ -57,6 +70,11 @@ class StationSelectionViewModel: NSObject {
             switch result{
             case .success(var stationList):
                 stationList = stationList.filter({ $0.geoLocation.province == selectedCity})
+                
+                if LoginViewModel.shared.isLocationPermissionGiven {
+                    stationList = stationList.sorted(by: { ($0.distanceInKM) ?? 0 < ($1.distanceInKM) ?? 0 })
+                }
+                
                 self?.delegate?.didStationListFetched(data: stationList)
             case .failure(let error):
                 print(error)

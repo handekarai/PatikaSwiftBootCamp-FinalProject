@@ -13,7 +13,7 @@ struct Station: Decodable {
     var stationCode: String
     var sockets: [Socket]
     var socketCount, occupiedSocketCount: Int
-    var distanceInKM: Double
+    var distanceInKM: Double?
     var geoLocation: GeoLocation
     var services: [String]
     var stationName: String
