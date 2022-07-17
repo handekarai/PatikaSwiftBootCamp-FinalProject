@@ -1,6 +1,7 @@
 # Charger
 
 Login Screen & Profile Screen
+Status bar is setted to light content regardless of device theme. Thus, user always sees the status bar in white color.
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-17 at 23 54 24](https://user-images.githubusercontent.com/3129441/179424377-808d7318-d6e6-49b7-8c4c-98285abe2fb0.gif)
 
