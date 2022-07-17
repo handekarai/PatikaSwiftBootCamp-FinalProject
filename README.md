@@ -39,3 +39,8 @@ If user does not give location permission, then kilometer info is not shown to u
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 01 07 14](https://user-images.githubusercontent.com/3129441/179426700-3ba11754-a443-41e2-ae2b-7a7716186c73.gif)
 
+Charger is written by using MVVM pattern. 
+Every screen has a module in project. 
+Each module has own endpoint in network layer.
+Because of time limit I could not finish time and date selection, appointment detail and filter screens.
+Because of my bad luck, my file was deleted in the last 1 hour of deadline, i had to deal with the deleted codes ( I learned something in here, I have to always push my codes to my repository :) ), I just took the screenshots and wrote this readme file after midnight, sorry for it. But I pushed my codes before midnight. Thanks for your understanding.
