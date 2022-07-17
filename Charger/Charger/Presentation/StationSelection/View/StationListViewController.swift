@@ -40,6 +40,8 @@ class StationListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFilteredStaionListNotification(_:)), name: NSNotification.Name(rawValue: "FilteredStationListNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoStationFilterNotification(_:)), name: NSNotification.Name(rawValue: "NoStationFilterNotification"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectedCityNotification(_:)), name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil)
     }
     
     
@@ -48,9 +50,7 @@ class StationListViewController: UIViewController {
         self.stationListTableView.delegate = self
         self.stationListTableView.dataSource = self
         
-        stationListTableView.register(UINib(nibName: "AppointmentTableViewCell", bundle: nil), forCellReuseIdentifier: "AppointmentTableViewCell")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectedCityNotification(_:)), name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil)
+        stationListTableView.register(UINib(nibName: "InfoCard", bundle: nil), forCellReuseIdentifier: "InfoCardCell")
     }
     
     // change search bar border color and view's visibility acccording to station list data
@@ -70,6 +70,7 @@ class StationListViewController: UIViewController {
         self.stationListTableView.reloadData()
     }
     
+    // sets value of selectedCity that is coming from StationSelectionViewController
     @objc func handleSelectedCityNotification(_ notification: NSNotification) {
         if let dict = notification.userInfo as NSDictionary? {
             self.selectedCity = dict["selectedCity"] as! String
@@ -90,25 +91,34 @@ extension StationListViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell", for: indexPath) as! AppointmentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCardCell", for: indexPath) as! InfoCardTableViewCell
        
         // set list that will be used by cell for filling cell's fields
         let listWillBeUsedForCell: [Station] = searching ? self.searchedStationList : self.stationList
         
-        cell.miniImageView.image = UIImage(named: viewModel.getImageName(listWillBeUsedForCell[indexPath.section].sockets))
-        cell.titleLabel.text = listWillBeUsedForCell[indexPath.section].stationName
         cell.deleteButton.isHidden = true
-        cell.dateLabel.text = "Hizmet saatleri: 24 Saat"
+        
+        // change "Hizmet saatleri:" to greyscale color, rest of them are white
+        cell.firstSubInfoStackLeadingLabel.attributedText =  "Hizmet saatleri: 24 Saat".changeTextAttributesWithSpecificRange(with: "Hizmet saatleri:".count)
         
         // if there is no location permission then hides km info
         if LoginViewModel.shared.isLocationPermissionGiven {
-            cell.alarmLabel.text = String(format: "%.1f", listWillBeUsedForCell[indexPath.section].distanceInKM ?? 0) + " km"
+            cell.firstSubInfoStackTrailingLabel.text = String(format: "%.1f", listWillBeUsedForCell[indexPath.section].distanceInKM ?? 0) + " km"
         }else{
-            cell.alarmLabel.isHidden = true
+            cell.firstSubInfoStackTrailingLabel.isHidden = true
         }
         
-        cell.socketNumberLabel.text = "Uygun soket sayısı:  \(listWillBeUsedForCell[indexPath.section].socketCount - listWillBeUsedForCell[indexPath.section].occupiedSocketCount) / \(listWillBeUsedForCell[indexPath.section].socketCount)"
-        cell.socketTypeLabel.isHidden = true
+        // set image according to socket types of station
+        cell.miniImageView.image = UIImage(named: viewModel.getImageName(listWillBeUsedForCell[indexPath.section].sockets))
+        
+        // change "Uygun soket sayısı:" to greyscale color, rest of them are white
+        cell.secondSubInfoStackLeadingLabel.attributedText = "Uygun soket sayısı: \(listWillBeUsedForCell[indexPath.section].socketCount - listWillBeUsedForCell[indexPath.section].occupiedSocketCount) / \(listWillBeUsedForCell[indexPath.section].socketCount)".changeTextAttributesWithSpecificRange(with: "Uygun soket sayısı:".count)
+        
+        // nothing will be shown in secondSubInfoStackTrailingLabel
+        cell.secondSubInfoStackTrailingLabel.isHidden = true
+        
+        // set station name
+        cell.titleLabel.text = listWillBeUsedForCell[indexPath.section].stationName
         
         return cell
     }

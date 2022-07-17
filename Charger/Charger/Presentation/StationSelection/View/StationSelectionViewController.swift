@@ -26,14 +26,22 @@ class StationSelectionViewController: UIViewController {
 
         setupUI()
         getStationList(for: selectedCity)
+        addNotificationCenter()
+    }
+    
+    private func addNotificationCenter(){
         
+        // post selected city name to StationListViewController
         let notificationDict = ["selectedCity": selectedCity]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil, userInfo: notificationDict)
+        
+        // observers for station name filtering
         NotificationCenter.default.addObserver(self, selector: #selector(handleFilteredStaionListNotification(_:)), name: NSNotification.Name(rawValue: "FilteredStationListNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoStationFilterNotification(_:)), name: NSNotification.Name(rawValue: "NoStationFilterNotification"), object: nil)
     }
     
+    // gets station list according to selected city. If location permission is given, list will be sorted otherwise not 
     private func getStationList(for selectedCity : String) {
         Task.init{
             await viewModel.getStationList(for: selectedCity)

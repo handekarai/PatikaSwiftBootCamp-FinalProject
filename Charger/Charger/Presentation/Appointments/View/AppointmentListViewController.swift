@@ -86,8 +86,8 @@ class AppointmentListViewController: UIViewController {
     }
     
     private func registerCell(){
-        currentAppointmentsTableView.register(UINib(nibName: "AppointmentTableViewCell", bundle: nil), forCellReuseIdentifier: "AppointmentTableViewCell")
-        passedAppointmentsTableView.register(UINib(nibName: "AppointmentTableViewCell", bundle: nil), forCellReuseIdentifier: "AppointmentTableViewCell")
+        currentAppointmentsTableView.register(UINib(nibName: "InfoCard", bundle: nil), forCellReuseIdentifier: "InfoCardCell")
+        passedAppointmentsTableView.register(UINib(nibName: "InfoCard", bundle: nil), forCellReuseIdentifier: "InfoCardCell")
     }
 
 }
@@ -111,7 +111,7 @@ extension AppointmentListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell", for: indexPath) as! AppointmentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCardCell", for: indexPath) as! InfoCardTableViewCell
 
         switch tableView{
             
@@ -122,16 +122,17 @@ extension AppointmentListViewController: UITableViewDelegate, UITableViewDataSou
             cell.titleLabel.text = currentAppointmentsList[indexPath.section].stationName
             cell.deleteButton.isHidden = false
 
-            cell.dateLabel.text = viewModel.formatDate(currentAppointmentsList[indexPath.section].date,monthNameType: .short) + ", " + currentAppointmentsList[indexPath.section].time
+            cell.firstSubInfoStackLeadingLabel.text = viewModel.formatDate(currentAppointmentsList[indexPath.section].date,monthNameType: .short) + ", " + currentAppointmentsList[indexPath.section].time
+            cell.firstSubInfoStackLeadingLabel.textColor = UIColor.whiteColor
             
             // if there is a permission than show that label
             if LoginViewModel.shared.isNotificationPermissionGiven{
-                cell.alarmLabel.text =  currentAppointmentsList[indexPath.section].time
+                cell.firstSubInfoStackTrailingLabel.text =  currentAppointmentsList[indexPath.section].time
             }else{
-                cell.alarmLabel.isHidden = true
+                cell.firstSubInfoStackTrailingLabel.isHidden = true
             }
-            cell.socketNumberLabel.text = "Soket Numarası: \(currentAppointmentsList[indexPath.section].socketID)"
-            cell.socketTypeLabel.text = viewModel.getSocketAndChargeType(currentAppointmentsList[indexPath.section])
+            cell.secondSubInfoStackLeadingLabel.text = "Soket Numarası: \(currentAppointmentsList[indexPath.section].socketID)"
+            cell.secondSubInfoStackTrailingLabel.text = viewModel.getSocketAndChargeType(currentAppointmentsList[indexPath.section])
           
             cell.deleteButton.tag = indexPath.section
             cell.deleteButton.titleLabel?.tag = currentAppointmentsList[indexPath.section].appointmentID
@@ -143,11 +144,12 @@ extension AppointmentListViewController: UITableViewDelegate, UITableViewDataSou
             cell.miniImageView.image = UIImage(named: viewModel.getImage(passedAppointmentsList[indexPath.section]))
             cell.titleLabel.text = passedAppointmentsList[indexPath.section].stationName
             cell.deleteButton.isHidden = true
+            cell.firstSubInfoStackLeadingLabel.textColor = UIColor.whiteColor
 
-            cell.dateLabel.text = viewModel.formatDate(passedAppointmentsList[indexPath.section].date, monthNameType: .short) + ", " + passedAppointmentsList[indexPath.section].time
-            cell.alarmLabel.text = viewModel.getPowerInfo(passedAppointmentsList[indexPath.section])
-            cell.socketNumberLabel.text = "Soket Numarası: \(passedAppointmentsList[indexPath.section].socketID)"
-            cell.socketTypeLabel.text = viewModel.getSocketAndChargeType(passedAppointmentsList[indexPath.section])
+            cell.firstSubInfoStackLeadingLabel.text = viewModel.formatDate(passedAppointmentsList[indexPath.section].date, monthNameType: .short) + ", " + passedAppointmentsList[indexPath.section].time
+            cell.firstSubInfoStackTrailingLabel.text = viewModel.getPowerInfo(passedAppointmentsList[indexPath.section])
+            cell.secondSubInfoStackLeadingLabel.attributedText = "Soket Numarası: \(passedAppointmentsList[indexPath.section].socketID)".changeTextAttributesWithSpecificRange(with: "Soket Numarası:".count)
+            cell.secondSubInfoStackTrailingLabel.text = viewModel.getSocketAndChargeType(passedAppointmentsList[indexPath.section])
 
         default:
             print("something wrong")
