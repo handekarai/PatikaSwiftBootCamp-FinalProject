@@ -30,7 +30,6 @@
 		6E31F2442878F10E0095098F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E31F2432878F10E0095098F /* Endpoint.swift */; };
 		6E31F2462878F11E0095098F /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E31F2452878F11E0095098F /* HTTPRequest.swift */; };
 		6E31F2482878F1960095098F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E31F2472878F1960095098F /* HTTPClient.swift */; };
-		6E31F24C287909E10095098F /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E31F24B287909E10095098F /* Encodable+Extensions.swift */; };
 		6E3BF640287C607500441C6F /* AppointmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BF63F287C607400441C6F /* AppointmentsModel.swift */; };
 		6E3BF642287C61D100441C6F /* AppointmentsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BF641287C61D100441C6F /* AppointmentsEndpoint.swift */; };
 		6E3BF645287DAA0800441C6F /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BF644287DAA0800441C6F /* Appointment.swift */; };
@@ -58,6 +57,7 @@
 		6E913CE0287B575A007ACE49 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */; };
 		6E913CE7287B6A9C007ACE49 /* InfoCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CE5287B6A9C007ACE49 /* InfoCardTableViewCell.swift */; };
 		6E913CE8287B6A9C007ACE49 /* InfoCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E913CE6287B6A9C007ACE49 /* InfoCard.xib */; };
+		6ECA04D02884AA4E006C5DD9 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */; };
 		6EE451712874AB950045820E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516B2874AB950045820E /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +105,6 @@
 		6E31F2432878F10E0095098F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		6E31F2452878F11E0095098F /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		6E31F2472878F1960095098F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		6E31F24B287909E10095098F /* Encodable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Encodable+Extensions.swift"; path = "../../../../../../../../.Trash/Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		6E3BF63F287C607400441C6F /* AppointmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsModel.swift; sourceTree = "<group>"; };
 		6E3BF641287C61D100441C6F /* AppointmentsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsEndpoint.swift; sourceTree = "<group>"; };
 		6E3BF644287DAA0800441C6F /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
 		6E913CE5287B6A9C007ACE49 /* InfoCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardTableViewCell.swift; sourceTree = "<group>"; };
 		6E913CE6287B6A9C007ACE49 /* InfoCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCard.xib; sourceTree = "<group>"; };
+		6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		6EE4516B2874AB950045820E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6EE4516F2874AB950045820E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -477,9 +477,9 @@
 				6E31F21D287629340095098F /* UIView+Extensions.swift */,
 				6E31F21F28762A1F0095098F /* UITextField+Extensions.swift */,
 				6E31F22128763A9D0095098F /* String+Extensions.swift */,
-				6E31F24B287909E10095098F /* Encodable+Extensions.swift */,
 				6E3BF6632881FA4A00441C6F /* UINavigationBar+Extensions.swift */,
 				6E3BF6652882175B00441C6F /* UIImage+Extensions.swift */,
+				6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -668,7 +668,6 @@
 				6E1BFBA8286CF4CD00796725 /* ViewController.swift in Sources */,
 				6E31F22228763A9D0095098F /* String+Extensions.swift in Sources */,
 				6E1BFBA4286CF4CD00796725 /* AppDelegate.swift in Sources */,
-				6E31F24C287909E10095098F /* Encodable+Extensions.swift in Sources */,
 				6E3BF6782883721400441C6F /* StationsEndpoint.swift in Sources */,
 				6E913CDA287AEF07007ACE49 /* AppointmentsViewController.swift in Sources */,
 				6E3BF67C2883748500441C6F /* StationSelectionViewModel.swift in Sources */,
@@ -679,6 +678,7 @@
 				6E31F22028762A1F0095098F /* UITextField+Extensions.swift in Sources */,
 				6E3BF65428818F4C00441C6F /* ProfileModel.swift in Sources */,
 				6E913CE7287B6A9C007ACE49 /* InfoCardTableViewCell.swift in Sources */,
+				6ECA04D02884AA4E006C5DD9 /* Encodable+Extensions.swift in Sources */,
 				6E31F21E287629340095098F /* UIView+Extensions.swift in Sources */,
 				6E31F23E2878F09B0095098F /* User.swift in Sources */,
 				6EE451712874AB950045820E /* LoginViewModel.swift in Sources */,
