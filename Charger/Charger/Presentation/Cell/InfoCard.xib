@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="155" id="KGk-i7-Jjw" customClass="AppointmentTableViewCell" customModule="Charger" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="155" id="KGk-i7-Jjw" customClass="InfoCardTableViewCell" customModule="Charger" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="360" height="155"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -59,13 +59,13 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVh-oy-zYz">
                                 <rect key="frame" x="5" y="0.0" width="165.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                <color key="textColor" name="GrayScale"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="White"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-sz-Jd8">
                                 <rect key="frame" x="170.5" y="0.0" width="165.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="GrayScale"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -80,15 +80,15 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="moK-2Q-nKx">
                         <rect key="frame" x="10" y="100" width="341" height="30"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soket Numarası: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-qe-UbB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-qe-UbB">
                                 <rect key="frame" x="5" y="0.0" width="165.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" name="GrayScale"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="White"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-P4-yxi">
                                 <rect key="frame" x="170.5" y="0.0" width="165.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="GrayScale"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -117,12 +117,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="alarmLabel" destination="YMa-sz-Jd8" id="YtC-i2-uRW"/>
-                <outlet property="dateLabel" destination="gVh-oy-zYz" id="lve-ft-IZE"/>
                 <outlet property="deleteButton" destination="Hbz-qK-Rt9" id="pen-jX-V8o"/>
+                <outlet property="firstSubInfoStack" destination="RaL-Xz-nez" id="Zdm-6R-f2D"/>
+                <outlet property="firstSubInfoStackLeadingLabel" destination="gVh-oy-zYz" id="lve-ft-IZE"/>
+                <outlet property="firstSubInfoStackTrailingLabel" destination="YMa-sz-Jd8" id="YtC-i2-uRW"/>
                 <outlet property="miniImageView" destination="k64-fn-g1Q" id="0Zo-79-g52"/>
-                <outlet property="socketNumberLabel" destination="LmV-qe-UbB" id="HVL-sD-kkR"/>
-                <outlet property="socketTypeLabel" destination="Z3J-P4-yxi" id="tnh-IC-ccc"/>
+                <outlet property="secondSubInfoStack" destination="moK-2Q-nKx" id="4mF-Jr-3Dy"/>
+                <outlet property="secondSubInfoStackLeadingLabel" destination="LmV-qe-UbB" id="HVL-sD-kkR"/>
+                <outlet property="secondSubInfoStackTrailingLabel" destination="Z3J-P4-yxi" id="tnh-IC-ccc"/>
                 <outlet property="titleLabel" destination="R0y-i1-bOX" id="zUv-oY-RKg"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="44.53125"/>
