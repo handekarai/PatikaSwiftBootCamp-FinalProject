@@ -16,7 +16,8 @@ Wrong Search in City Selection Screen
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 14 22](https://user-images.githubusercontent.com/3129441/179425039-bdfdfb01-ffb9-4dfc-aa9e-09860e9a53ad.gif)
 
-City Selection ( if city has no station )
+City Selection 
+If city does not have a station , then search bar and filter button disables in station selection screen. 
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 16 04](https://user-images.githubusercontent.com/3129441/179425090-80f0eb44-0c7e-4449-a61e-3661f4c2c12e.gif)
 
@@ -29,7 +30,7 @@ I haven't implemented create appointment screen yet, because of this I created a
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 57 01](https://user-images.githubusercontent.com/3129441/179426293-5fce1fc3-5343-4dbb-8e8e-54cdb3dcf7db.gif)
 
-After appointment time has passed , appointment will be shown in past appointments.
+After appointment time has passed , appointment will be shown in past appointments. Delete button is not shown to user in passed appointments.
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 01 02 08](https://user-images.githubusercontent.com/3129441/179426553-6477eee9-453e-49c8-bda9-40797e4a7272.gif)
 
