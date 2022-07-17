@@ -20,3 +20,6 @@ City Selection ( if city has no station )
 
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 16 04](https://user-images.githubusercontent.com/3129441/179425090-80f0eb44-0c7e-4449-a61e-3661f4c2c12e.gif)
 
+Station Selection 
+
+![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 00 22 46](https://user-images.githubusercontent.com/3129441/179425287-96ee1e2e-a19f-457c-b07b-7dc4d422e199.gif)
