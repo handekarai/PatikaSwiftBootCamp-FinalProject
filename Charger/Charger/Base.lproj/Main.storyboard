@@ -671,6 +671,21 @@
             <point key="canvasLocation" x="3795.652173913044" y="-1.3392857142857142"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="I3D-3U-iFO">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="PEs-yp-Zjm" customClass="ViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gK5-WR-IGT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MoS-7N-GNv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lwa-x5-eY0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4638" y="20"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="OBq-rC-Xf6">
             <objects>
                 <viewController id="LOH-id-N60" sceneMemberID="viewController">
@@ -799,6 +814,7 @@
                                 <sections/>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="flR-9i-jNG"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CdK-Cf-SDH" firstAttribute="top" secondItem="hZf-H9-gUw" secondAttribute="top" id="EAZ-Pp-5lo"/>

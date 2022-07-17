@@ -62,6 +62,11 @@ class StationSelectionViewController: UIViewController {
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(goToBack(_:)))
         navigationBarItem.leftBarButtonItem?.tintColor = Theme.navigationBarTitleColor
         
+        // filter image has not given in assets for that reason i put "line.horizontal.3.decrease" image, it looks like filter image
+        navigationBarItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease"), style: .done, target: self, action: #selector(goToFilterScreen(_:)))
+        navigationBarItem.rightBarButtonItem?.tintColor = Theme.navigationBarTitleColor
+        
+        
         // add gradient color to background
         bodyBackgroundView.addGradient()
         
@@ -101,6 +106,15 @@ class StationSelectionViewController: UIViewController {
         self.stationView.alpha = 1
         self.noStationView.alpha = 0
         self.searchBar.layer.borderColor = UIColor.greyScaleColor.cgColor
+    }
+    
+    // goes to filter screen
+    @objc func goToFilterScreen(_ sender: UIBarButtonItem) {
+        // open filter screen
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     // goes back to previous screen
