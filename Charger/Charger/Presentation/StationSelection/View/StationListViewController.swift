@@ -16,6 +16,8 @@ class StationListViewController: UIViewController {
     var stationList: [Station] = []                 // list coming from api
     var searchedStationList: [Station] = []         // filtered list
     var searching: Bool = false                     // determines which list will be used in table view delegate funcs
+    var selectedCity: String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,7 @@ class StationListViewController: UIViewController {
         
         setupUI()
         Task.init{
-            await viewModel.getStationList()
+            await viewModel.getStationList(for: selectedCity)
         }
     }
     
@@ -34,6 +36,14 @@ class StationListViewController: UIViewController {
         self.stationListTableView.dataSource = self
         
         stationListTableView.register(UINib(nibName: "AppointmentTableViewCell", bundle: nil), forCellReuseIdentifier: "AppointmentTableViewCell")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectedCityNotification(_:)), name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil)
+    }
+    
+    @objc func handleSelectedCityNotification(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            self.selectedCity = dict["selectedCity"] as! String
+        }
     }
 }
 

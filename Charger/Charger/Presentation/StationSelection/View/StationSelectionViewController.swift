@@ -25,12 +25,15 @@ class StationSelectionViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        getStationList()
+        getStationList(for: selectedCity)
+        
+        let notificationDict = ["selectedCity": selectedCity]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil, userInfo: notificationDict)
     }
     
-    private func getStationList() {
+    private func getStationList(for selectedCity : String) {
         Task.init{
-            await viewModel.getStationList()
+            await viewModel.getStationList(for: selectedCity)
         }
     }
     
@@ -78,7 +81,7 @@ extension StationSelectionViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // if clear(X) button is pressed , do not need filter
         if searchText.isEmpty{
-            
+
         }else{
             
         }
@@ -92,9 +95,15 @@ extension StationSelectionViewController: StationSelectionViewModelDelegate {
     func didStationListFetched(data: [Station]) {
         // UI changes must be in main thread
         DispatchQueue.main.async {
-            self.stationList = data
-            self.noStationView.alpha = 0
-            self.stationView.alpha = 1
+            // if selected city has no station, show noStationView
+            if data.isEmpty {
+                self.noStationView.alpha = 1
+                self.stationView.alpha = 0
+            }else {
+                self.stationList = data
+                self.noStationView.alpha = 0
+                self.stationView.alpha = 1
+            }
         }
     }
 }

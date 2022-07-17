@@ -50,12 +50,13 @@ class StationSelectionViewModel: NSObject {
     }
     
     // gets Station list and transfers it with delegation
-    func getStationList() async {
+    func getStationList(for selectedCity : String) async {
         
         await model.fecthStationList(){  [weak self] result in
             
             switch result{
-            case .success(let stationList):
+            case .success(var stationList):
+                stationList = stationList.filter({ $0.geoLocation.province == selectedCity})
                 self?.delegate?.didStationListFetched(data: stationList)
             case .failure(let error):
                 print(error)
