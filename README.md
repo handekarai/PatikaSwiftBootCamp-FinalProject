@@ -35,4 +35,5 @@ After appointment time has passed , appointment will be shown in past appointmen
 
 If user does not give location permission, then kilometer info is not shown to user in station list and list order is not according to kilometers. Otherwise station list will be shown increasing order according to kilometers.
 
+![Simulator Screen Recording - iPhone 13 Pro - 2022-07-18 at 01 07 14](https://user-images.githubusercontent.com/3129441/179426700-3ba11754-a443-41e2-ae2b-7a7716186c73.gif)
 
