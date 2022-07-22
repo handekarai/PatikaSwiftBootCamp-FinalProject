@@ -8,10 +8,10 @@
 import Foundation
 
 struct Filter {
-    var chargeType: [ChargeType]?
-    var socketType: [SocketType]?
-    var distanceKM: Int?
-    var service: [Service]?
+    var chargeType: [ChargeType]
+    var socketType: [SocketType]
+    var distanceKM: Int
+    var service: [Service]
 }
 
 enum Service: String, Encodable {

@@ -20,17 +20,32 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var socketTypeCscButton: UIButton!
     @IBOutlet weak var socketTypeChademoButton: UIButton!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var distanceSliderValue: UISlider!
     @IBOutlet weak var servicesLabel: UILabel!
     @IBOutlet weak var serviceCarParkButton: UIButton!
     @IBOutlet weak var serviceBuffetButton: UIButton!
     @IBOutlet weak var serviceWiFiButton: UIButton!
     
     var filter: Filter?
+    var buttonList: [UIButton]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        initializeVaribles()
         setupUI()
+    }
+    
+    private func initializeVaribles() {
+        filter = Filter(chargeType: [], socketType: [], distanceKM: Int(distanceSliderValue.value), service: [])
+        buttonList = [deviceTypeAcButton,
+                      deviceTypeDcButton,
+                      socketTypeTypeTwoButton,
+                      socketTypeCscButton,
+                      socketTypeChademoButton,
+                      serviceCarParkButton,
+                      serviceBuffetButton,
+                      serviceWiFiButton]
     }
     
     private func setupUI() {
@@ -49,6 +64,7 @@ class FilterViewController: UIViewController {
         navigationBarItem.rightBarButtonItem = UIBarButtonItem(title: "TEMİZLE", style: .done, target: self, action: #selector(resetFilter(_:)))
         navigationBarItem.rightBarButtonItem?.tintColor = Theme.navigationBarTitleColor
         navigationBarItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14.0, weight: .medium)], for: .normal)
+        navigationBarItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14.0, weight: .medium)], for: .selected)
         
         // add gradient color to background
         bodyBackgroundView.addGradient()
@@ -57,26 +73,13 @@ class FilterViewController: UIViewController {
         deviceTypeLabel.textColor = Theme.bodyTitleColor
         deviceTypeLabel.font = Theme.bodyTitleFont
         
-        // ac button background and border color
-        addColorAndBorderToButton(deviceTypeAcButton)
-        
-        // dc button background and border color
-        addColorAndBorderToButton(deviceTypeDcButton)
-
+        // add tint and border color to all filter options buttons
+        addColorAndBorderToButtons(buttonList!)
         
         // socket type label color and font
         socketTypeLabel.textColor = Theme.bodyTitleColor
         socketTypeLabel.font = Theme.bodyTitleFont
         
-        // socketTypeTypeTwoButton background and border color
-        addColorAndBorderToButton(socketTypeTypeTwoButton)
-        
-        // socketTypeCscButton background and border color
-        addColorAndBorderToButton(socketTypeCscButton)
-        
-        // socketTypeChademoButton background and border color
-        addColorAndBorderToButton(socketTypeChademoButton)
-
         // device type label color and font
         distanceLabel.textColor = Theme.bodyTitleColor
         distanceLabel.font = Theme.bodyTitleFont
@@ -85,27 +88,32 @@ class FilterViewController: UIViewController {
         servicesLabel.textColor = Theme.bodyTitleColor
         servicesLabel.font = Theme.bodyTitleFont
 
-        // serviceCarParkButton background and border color
-        addColorAndBorderToButton(serviceCarParkButton)
-        
-        // serviceBuffetButton background and border color
-        addColorAndBorderToButton(serviceBuffetButton)
-        
-        // serviceWiFiButton background and border color
-        addColorAndBorderToButton(serviceWiFiButton)
-
     }
     
-    private func addColorAndBorderToButton(_ button: UIButton) {
-        
-        button.tintColor = UIColor.clear
-        button.layer.borderColor = UIColor.whiteColor.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = deviceTypeDcButton.frame.size.height * 0.5
+    private func addColorAndBorderToButtons(_ buttons: [UIButton]) {
+        for button in buttons {
+            button.tintColor = UIColor.clear
+            button.layer.borderColor = UIColor.whiteColor.cgColor
+            button.layer.borderWidth = 1
+            button.layer.cornerRadius = deviceTypeDcButton.frame.size.height * 0.5
+        }
     }
 
     // reset filter
-    @objc func resetFilter(_ sender: UIBarButtonItem) {}
+    @objc func resetFilter(_ sender: UIBarButtonItem) {
+        
+        // reset buttons color
+        for button in buttonList! {
+            button.tintColor = UIColor.clear
+            button.layer.borderColor = UIColor.whiteColor.cgColor
+        }
+        
+        // reset slider value to max
+        distanceSliderValue.setValue(distanceSliderValue.maximumValue, animated: true)
+        
+        // reset filter object
+        filter = Filter(chargeType: [], socketType: [], distanceKM: Int(distanceSliderValue.value), service: [])
+    }
     
     // goes back to previous screen
     @objc func goToBack(_ sender: UIBarButtonItem) {
@@ -123,26 +131,33 @@ class FilterViewController: UIViewController {
             sender.layer.borderColor = UIColor.whiteColor.cgColor
         }
         
+        // add filter option to filter's related property
         switch sender {
         case deviceTypeAcButton:
-            sender.tintColor == UIColor.darkColor ? filter?.chargeType?.append(ChargeType.ac) : filter?.chargeType?.removeAll(where: { $0 == ChargeType.ac})
+            sender.tintColor == UIColor.darkColor ? filter?.chargeType.append(ChargeType.ac) : filter?.chargeType.removeAll(where: { $0 == ChargeType.ac})
         case deviceTypeDcButton:
-            sender.tintColor == UIColor.darkColor ? filter?.chargeType?.append(ChargeType.dc) : filter?.chargeType?.removeAll(where: { $0 == ChargeType.dc})
+            sender.tintColor == UIColor.darkColor ? filter?.chargeType.append(ChargeType.dc) : filter?.chargeType.removeAll(where: { $0 == ChargeType.dc})
         case socketTypeTypeTwoButton:
-            sender.tintColor == UIColor.darkColor ? filter?.socketType?.append(SocketType.type2) : filter?.socketType?.removeAll(where: { $0 == SocketType.type2})
+            sender.tintColor == UIColor.darkColor ? filter?.socketType.append(SocketType.type2) : filter?.socketType.removeAll(where: { $0 == SocketType.type2})
         case socketTypeCscButton:
-            sender.tintColor == UIColor.darkColor ? filter?.socketType?.append(SocketType.csc) : filter?.socketType?.removeAll(where: { $0 == SocketType.csc})
+            sender.tintColor == UIColor.darkColor ? filter?.socketType.append(SocketType.csc) : filter?.socketType.removeAll(where: { $0 == SocketType.csc})
         case socketTypeChademoButton:
-            sender.tintColor == UIColor.darkColor ? filter?.socketType?.append(SocketType.chademo) : filter?.socketType?.removeAll(where: { $0 == SocketType.chademo})
+            sender.tintColor == UIColor.darkColor ? filter?.socketType.append(SocketType.chademo) : filter?.socketType.removeAll(where: { $0 == SocketType.chademo})
         case serviceCarParkButton:
-            sender.tintColor == UIColor.darkColor ? filter?.service?.append(Service.carPark) : filter?.service?.removeAll(where: { $0 == Service.carPark})
+            sender.tintColor == UIColor.darkColor ? filter?.service.append(Service.carPark) : filter?.service.removeAll(where: { $0 == Service.carPark})
         case serviceBuffetButton:
-            sender.tintColor == UIColor.darkColor ? filter?.service?.append(Service.buffet) : filter?.service?.removeAll(where: { $0 == Service.buffet})
+            sender.tintColor == UIColor.darkColor ? filter?.service.append(Service.buffet) : filter?.service.removeAll(where: { $0 == Service.buffet})
         case serviceWiFiButton:
-            sender.tintColor == UIColor.darkColor ? filter?.service?.append(Service.wifi) : filter?.service?.removeAll(where: { $0 == Service.wifi})
+            sender.tintColor == UIColor.darkColor ? filter?.service.append(Service.wifi) : filter?.service.removeAll(where: { $0 == Service.wifi})
         default:
             break
         }
+    }
+    
+    // get value from slider and assign it filter's distanceKM property
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        let value = Int(sender.value)
+        filter?.distanceKM = value
     }
     
 }
