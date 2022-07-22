@@ -11,10 +11,6 @@ protocol StationSelectionViewModelDelegate: AnyObject {
     func didStationListFetched(data: [Station])
 }
 
-enum ChargeType: String {
-    case ac = "AC"
-    case dc = "DC"
-}
 
 enum ImageName: String {
     case ac = "avatar2"     // ac image
