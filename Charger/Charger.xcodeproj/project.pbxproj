@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E037BDE288981840023C12D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E037BDD288981840023C12D /* Filter.swift */; };
 		6E07BA6B2875E4FA00A0CFEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA9286CF4CD00796725 /* Main.storyboard */; };
 		6E07BA6C2875E50100A0CFEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516F2874AB950045820E /* LoginViewController.swift */; };
 		6E1BFBA4286CF4CD00796725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BFBA3286CF4CD00796725 /* AppDelegate.swift */; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E037BDD288981840023C12D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		6E1BFBA0286CF4CD00796725 /* Charger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1BFBA3286CF4CD00796725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E1BFBA5286CF4CD00796725 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		6E3BF6852884920F00441C6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E037BDD288981840023C12D /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E3BF67428835F7F00441C6F /* StationSelectionViewController.swift in Sources */,
+				6E037BDE288981840023C12D /* Filter.swift in Sources */,
 				6E3BF657288197D900441C6F /* LogoutEndpoint.swift in Sources */,
 				6E3BF67A288373EC00441C6F /* StationSelectionModel.swift in Sources */,
 				6E3BF668288223C700441C6F /* CityEndpoint.swift in Sources */,
