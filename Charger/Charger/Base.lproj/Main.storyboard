@@ -861,6 +861,20 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjQ-xa-fcX">
+                                        <rect key="frame" x="67" y="668" width="280" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="uE7-vZ-VYk"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="FİLTRELE" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            <color key="baseForegroundColor" name="Dark"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="filterButtonTapped:" destination="JK5-nj-BFh" eventType="touchUpInside" id="6aR-ze-kTz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -869,6 +883,7 @@
                                     <constraint firstAttribute="trailing" secondItem="UzK-9R-06w" secondAttribute="trailing" constant="20" id="4Ou-YU-a5w"/>
                                     <constraint firstItem="cDc-s0-dJQ" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="623-qh-Q6Z"/>
                                     <constraint firstItem="YEh-Dt-JIn" firstAttribute="leading" secondItem="sUT-s7-MMm" secondAttribute="trailing" constant="15" id="7vK-CD-J6P"/>
+                                    <constraint firstAttribute="bottom" secondItem="AjQ-xa-fcX" secondAttribute="bottom" constant="90" id="9X7-Zk-OY1"/>
                                     <constraint firstItem="KNy-Wv-Zht" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="BTW-7l-3jJ"/>
                                     <constraint firstItem="VyW-VD-w3r" firstAttribute="top" secondItem="WUo-wJ-HnD" secondAttribute="bottom" constant="20" id="DLz-mt-bnC"/>
                                     <constraint firstItem="NLZ-Rr-ATx" firstAttribute="top" secondItem="sUT-s7-MMm" secondAttribute="bottom" constant="35" id="Dmb-sD-gbe"/>
@@ -876,6 +891,7 @@
                                     <constraint firstItem="erH-Er-VT7" firstAttribute="top" secondItem="NLZ-Rr-ATx" secondAttribute="bottom" constant="20" id="HnK-cn-2Xl"/>
                                     <constraint firstItem="cDc-s0-dJQ" firstAttribute="top" secondItem="WUo-wJ-HnD" secondAttribute="bottom" constant="20" id="Sc8-DB-tsA"/>
                                     <constraint firstItem="bgJ-pC-Jc2" firstAttribute="top" secondItem="WUo-wJ-HnD" secondAttribute="bottom" constant="20" id="UkA-97-n2d"/>
+                                    <constraint firstItem="AjQ-xa-fcX" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="67" id="ZGA-ab-ile"/>
                                     <constraint firstItem="sUT-s7-MMm" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="aJT-hC-5ii"/>
                                     <constraint firstItem="WUo-wJ-HnD" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="bdv-hT-E5X"/>
                                     <constraint firstItem="VyW-VD-w3r" firstAttribute="leading" secondItem="bgJ-pC-Jc2" secondAttribute="trailing" constant="15" id="dT2-1u-aeE"/>
@@ -883,6 +899,7 @@
                                     <constraint firstItem="kyB-07-Nwr" firstAttribute="leading" secondItem="x9G-8D-gWb" secondAttribute="trailing" constant="15" id="eGV-y0-tnv"/>
                                     <constraint firstItem="sUT-s7-MMm" firstAttribute="top" secondItem="UzK-9R-06w" secondAttribute="bottom" constant="20" id="ef8-k0-0aE"/>
                                     <constraint firstItem="kyB-07-Nwr" firstAttribute="top" secondItem="NLZ-Rr-ATx" secondAttribute="bottom" constant="20" id="ejN-EK-ySh"/>
+                                    <constraint firstAttribute="trailing" secondItem="AjQ-xa-fcX" secondAttribute="trailing" constant="67" id="f5D-D5-e2C"/>
                                     <constraint firstItem="Epi-lK-kPd" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="fmM-Qo-DoN"/>
                                     <constraint firstItem="x9G-8D-gWb" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="gQv-cE-GNg"/>
                                     <constraint firstItem="VBW-AI-JEs" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="glq-dp-5ej"/>
@@ -920,6 +937,7 @@
                         <outlet property="deviceTypeLabel" destination="UzK-9R-06w" id="jY5-Xa-0lU"/>
                         <outlet property="distanceLabel" destination="VBW-AI-JEs" id="98P-vn-64P"/>
                         <outlet property="distanceSliderValue" destination="KNy-Wv-Zht" id="Tt4-Ah-2Cl"/>
+                        <outlet property="filterButton" destination="AjQ-xa-fcX" id="rQC-hw-2wz"/>
                         <outlet property="navigationBar" destination="2E7-l2-A5e" id="gBh-Gh-zLM"/>
                         <outlet property="navigationBarItem" destination="uav-uR-eMD" id="52J-cb-Y6w"/>
                         <outlet property="serviceBuffetButton" destination="bgJ-pC-Jc2" id="0uu-ml-EYN"/>
