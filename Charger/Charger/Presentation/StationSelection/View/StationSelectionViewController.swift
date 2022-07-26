@@ -20,6 +20,7 @@ class StationSelectionViewController: UIViewController {
     
     var selectedCity: String = ""
     var stationList: [Station] = []
+    var filter : Filter = Filter(chargeType: [], socketType: [], distanceKM: 15, service: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,9 @@ class StationSelectionViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleFilteredStaionListNotification(_:)), name: NSNotification.Name(rawValue: "FilteredStationListNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoStationFilterNotification(_:)), name: NSNotification.Name(rawValue: "NoStationFilterNotification"), object: nil)
+        
+        // observes filter options
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFilterOptionsNotification(_:)), name: NSNotification.Name(rawValue: "FilterOptionsNotification"), object: nil)
     }
     
     // gets station list according to selected city. If location permission is given, list will be sorted otherwise not 
@@ -101,6 +105,23 @@ class StationSelectionViewController: UIViewController {
         }
     }
     
+    // get filter options data to reshow when user goes to filter screen again
+    @objc func handleFilterOptionsNotification(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let filter = dict["filter"] as? Filter {
+                if filter.chargeType.isEmpty && filter.socketType.isEmpty && filter.service.isEmpty && filter.distanceKM == 15 {
+                    navigationBarItem.rightBarButtonItem?.tintColor = UIColor.whiteColor
+                }else{
+                    navigationBarItem.rightBarButtonItem?.tintColor = UIColor.primaryColor
+                }
+                self.filter = filter
+            }
+            
+        }
+        
+        
+    }
+    
     // change view to initial state
     @objc func handleNoStationFilterNotification(_ notification: NSNotification) {
         self.stationView.alpha = 1
@@ -113,6 +134,7 @@ class StationSelectionViewController: UIViewController {
         // open filter screen
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController{
+            vc.filter = self.filter
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

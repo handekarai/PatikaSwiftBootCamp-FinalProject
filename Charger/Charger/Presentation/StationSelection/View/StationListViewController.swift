@@ -23,16 +23,12 @@ class StationListViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.delegate = self
-        
+        getStationList()
         setupUI()
         addNotificationCenterObserver()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        Task.init{
-            await viewModel.getStationList(for: selectedCity)
-        }
-    }
+  
     
     // adds observers to notification center to observe filtering mechanism
     private func addNotificationCenterObserver () {
@@ -42,8 +38,16 @@ class StationListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoStationFilterNotification(_:)), name: NSNotification.Name(rawValue: "NoStationFilterNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleSelectedCityNotification(_:)), name: NSNotification.Name(rawValue: "SelectedCityNotification"), object: nil)
+        
+        // observes filter options
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFilterOptionsNotification(_:)), name: NSNotification.Name(rawValue: "FilterOptionsNotification"), object: nil)
     }
     
+    private func getStationList(){
+        Task.init{
+            await viewModel.getStationList(for: selectedCity)
+        }
+    }
     
     private func setupUI(){
         
@@ -53,6 +57,7 @@ class StationListViewController: UIViewController {
         stationListTableView.register(UINib(nibName: "InfoCard", bundle: nil), forCellReuseIdentifier: "InfoCardCell")
     }
     
+    //MARK: - @objc funcs
     // change search bar border color and view's visibility acccording to station list data
     @objc func handleFilteredStaionListNotification(_ notification: NSNotification) {
         if let dict = notification.userInfo as NSDictionary? {
@@ -62,6 +67,67 @@ class StationListViewController: UIViewController {
                 self.stationListTableView.reloadData()
             }
         }
+    }
+    
+    @objc func handleFilterOptionsNotification(_ notification: NSNotification) {
+        
+        var filteredList: [Station] = []
+        var filterForChargeType : Bool = true
+        var filterForSocketType : Bool = true
+        var filterForService : Bool = true
+        var filterForDistance : Bool = true
+        
+        if let dict = notification.userInfo as NSDictionary? {
+            if let filter = dict["filter"] as? Filter {
+                
+                // if filter is reset
+                if filter.chargeType.isEmpty && filter.socketType.isEmpty && filter.service.isEmpty && filter.distanceKM == 15 {
+                    self.getStationList()
+                }else {
+                    for station in stationList {
+                        var chargeTypes = Set<String>()
+                        
+                        for socket in station.sockets {
+                            chargeTypes.update(with: socket.chargeType ?? "")
+                        }
+                        
+                        var socketTypes = Set<String>()
+                        for socket in station.sockets {
+                            socketTypes.update(with: socket.socketType ?? "")
+                        }
+                        
+                        let services = Set(station.services)
+                        
+                        // filterForChargeType is true when station has selected charges types
+                        if !filter.chargeType.isEmpty {
+                            filterForChargeType = Set(filter.chargeType).isSubset(of: chargeTypes)
+                        }
+                        // filterForSocketType is true when station has selected socket types
+                        if !filter.socketType.isEmpty {
+                            filterForSocketType = Set(filter.socketType).isSubset(of: socketTypes)
+                        }
+                        // filterForService is true when station has selected services
+                        if !filter.service.isEmpty {
+                            filterForService = Set(filter.service).isSubset(of: services)
+                        }
+                        
+                        if LoginViewModel.shared.isLocationPermissionGiven && filter.distanceKM != 15 {
+                            filterForDistance = Int(station.distanceInKM!) <= Int(filter.distanceKM)
+                        }
+                        
+                        // if all cases are true than add station to filtered list
+                        if filterForChargeType && filterForSocketType && filterForService && filterForDistance{
+                            filteredList.append(station)
+                        }
+                    }
+                    
+                    self.stationList = filteredList
+                    self.stationListTableView.reloadData()
+                }
+            
+            }
+        }
+       
     }
     
     // change view to initial state
