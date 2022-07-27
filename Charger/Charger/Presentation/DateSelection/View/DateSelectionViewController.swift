@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DateSelectionViewController: UIViewController {
+class DateSelectionViewController: UIViewController, PickerViewDelegate {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
@@ -16,10 +16,34 @@ class DateSelectionViewController: UIViewController {
     @IBOutlet weak var dateButton: UIButton!
     
     var selectedStation: Station!
+    var picker: PickerView!
+    var popUp: PopUpView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.picker = PickerView(frame: self.view.frame)
+        self.picker.delegate = self
         setupUI()
+    }
+    
+    // prepares and show the picker pop up
+    private func showPicker(){
+        self.view.addSubview(picker)
+    }
+    
+    // prepares and show the pop up
+    private func showPopUp(){
+        self.popUp = PopUpView(frame: self.view.frame)
+        self.popUp.titleLabel.text = "Geçersiz Tarih"
+        self.popUp.descriptionLabel.text = "Geçmiş bir tarihe randevu alamazsınız."
+        self.popUp.firstOptionButton.addTarget(self, action: #selector(reSelectButtonTapped), for: .touchUpInside)
+        self.popUp.firstOptionButton.setTitle("DÜZENLE", for: .normal)
+        self.popUp.secondOptionButton.addTarget(self, action: #selector(choseTodayButtonTapped), for: .touchUpInside)
+        self.popUp.secondOptionButton.setTitle("BUGÜNÜ SEÇ", for: .normal)
+
+        self.view.addSubview(popUp)
     }
     
     private func setupUI () {
@@ -55,5 +79,31 @@ class DateSelectionViewController: UIViewController {
     @objc func goToBack(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    @objc func choseTodayButtonTapped(_ sender: Any) {
+        self.popUp.removeFromSuperview()
+        let date = String(DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none))
+        dateButton.setTitle(date, for: .normal)
+    }
+    
+    @objc func reSelectButtonTapped(_ sender: Any) {
+        self.popUp.removeFromSuperview()
+        showPicker()
+    }
+    
+    @IBAction func dateButtonTapped(_ sender: Any) {
+        showPicker()
+    }
+    
+    
+    func didDateSelected(date: Date) {
+        // if date is passed than show popup
+        if date < Date(){
+            self.picker.removeFromSuperview()
+            showPopUp()
+        } else {
+            let date = String(DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .none))
+            dateButton.setTitle(date, for: .normal)
+        }
+    }
 }

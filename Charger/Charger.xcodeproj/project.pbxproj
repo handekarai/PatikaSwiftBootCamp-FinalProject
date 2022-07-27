@@ -60,6 +60,8 @@
 		6E913CE8287B6A9C007ACE49 /* InfoCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E913CE6287B6A9C007ACE49 /* InfoCard.xib */; };
 		6EA2FE4E289030D200822C0C /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2FE4D289030D200822C0C /* DateSelectionViewController.swift */; };
 		6EA2FE5028917AD900822C0C /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2FE4F28917AD900822C0C /* UILabel+Extensions.swift */; };
+		6EA2FE5428918E7900822C0C /* Picker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA2FE5328918E7900822C0C /* Picker.xib */; };
+		6EA2FE5628918E9400822C0C /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2FE5528918E9400822C0C /* PickerView.swift */; };
 		6ECA04D02884AA4E006C5DD9 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */; };
 		6EE451712874AB950045820E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516B2874AB950045820E /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -138,6 +140,8 @@
 		6E913CE6287B6A9C007ACE49 /* InfoCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCard.xib; sourceTree = "<group>"; };
 		6EA2FE4D289030D200822C0C /* DateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
 		6EA2FE4F28917AD900822C0C /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		6EA2FE5328918E7900822C0C /* Picker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Picker.xib; sourceTree = "<group>"; };
+		6EA2FE5528918E9400822C0C /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		6EE4516B2874AB950045820E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6EE4516F2874AB950045820E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +462,8 @@
 			isa = PBXGroup;
 			children = (
 				6EA2FE4D289030D200822C0C /* DateSelectionViewController.swift */,
+				6EA2FE5328918E7900822C0C /* Picker.xib */,
+				6EA2FE5528918E9400822C0C /* PickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -674,6 +680,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E07BA6B2875E4FA00A0CFEF /* Main.storyboard in Resources */,
+				6EA2FE5428918E7900822C0C /* Picker.xib in Resources */,
 				6E913CE8287B6A9C007ACE49 /* InfoCard.xib in Resources */,
 				6E1BFBB0286CF4D100796725 /* LaunchScreen.storyboard in Resources */,
 				6E31F22428764D400095098F /* PopUp.xib in Resources */,
@@ -722,6 +729,7 @@
 				6E31F22028762A1F0095098F /* UITextField+Extensions.swift in Sources */,
 				6E3BF65428818F4C00441C6F /* ProfileModel.swift in Sources */,
 				6E913CE7287B6A9C007ACE49 /* InfoCardTableViewCell.swift in Sources */,
+				6EA2FE5628918E9400822C0C /* PickerView.swift in Sources */,
 				6ECA04D02884AA4E006C5DD9 /* Encodable+Extensions.swift in Sources */,
 				6E31F21E287629340095098F /* UIView+Extensions.swift in Sources */,
 				6E31F23E2878F09B0095098F /* User.swift in Sources */,
