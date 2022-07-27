@@ -238,13 +238,13 @@
                                 <rect key="frame" x="32" y="290" width="350" height="108.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henüz bir randevu oluşturmadınız." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsW-c2-dhP">
-                                        <rect key="frame" x="66.5" y="0.0" width="217" height="41.5"/>
+                                        <rect key="frame" x="66.5" y="0.0" width="217" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oluşturulan randevular burada listelenir." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-CL-IXT">
-                                        <rect key="frame" x="31" y="70.5" width="288" height="38"/>
+                                        <rect key="frame" x="31" y="89" width="288" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="GrayScale"/>
                                         <nil key="highlightedColor"/>
@@ -1099,6 +1099,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0C-lk-LaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3931.884057971015" y="748.99553571428567"/>
+        </scene>
+        <!--Date Selection View Controller-->
+        <scene sceneID="2Bj-hH-s9L">
+            <objects>
+                <viewController storyboardIdentifier="DateSelectionViewController" id="FXu-Qh-x2a" customClass="DateSelectionViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ygp-kc-XAB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-ek-5F8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ggr-tK-24l"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Tarih ve Saat Seçin" id="Rto-Kr-6Af"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wid-Ve-beY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="DhG-vk-tPq">
+                                        <rect key="frame" x="15" y="20" width="398" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Randevu Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-Qf-Rrn">
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-4L-JXD">
+                                                <rect key="frame" x="331" y="0.0" width="67" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="WC8-bs-ubA"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="DhG-vk-tPq" firstAttribute="top" secondItem="wid-Ve-beY" secondAttribute="top" constant="20" id="ASu-6J-D5F"/>
+                                    <constraint firstItem="DhG-vk-tPq" firstAttribute="leading" secondItem="wid-Ve-beY" secondAttribute="leading" constant="15" id="BBI-U7-IZb"/>
+                                    <constraint firstAttribute="trailing" secondItem="DhG-vk-tPq" secondAttribute="trailing" constant="1" id="vOr-1n-yVX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fa4-Hy-rN8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wid-Ve-beY" firstAttribute="top" secondItem="0bT-ek-5F8" secondAttribute="bottom" id="DBW-9c-Gn1"/>
+                            <constraint firstItem="0bT-ek-5F8" firstAttribute="leading" secondItem="fa4-Hy-rN8" secondAttribute="leading" id="H7g-AX-pkC"/>
+                            <constraint firstItem="0bT-ek-5F8" firstAttribute="top" secondItem="fa4-Hy-rN8" secondAttribute="top" id="H82-E9-3Ib"/>
+                            <constraint firstItem="wid-Ve-beY" firstAttribute="trailing" secondItem="fa4-Hy-rN8" secondAttribute="trailing" id="TRo-cn-yoF"/>
+                            <constraint firstAttribute="bottom" secondItem="wid-Ve-beY" secondAttribute="bottom" id="euw-zU-Xq8"/>
+                            <constraint firstItem="0bT-ek-5F8" firstAttribute="trailing" secondItem="fa4-Hy-rN8" secondAttribute="trailing" id="r5A-9a-0ZO"/>
+                            <constraint firstItem="wid-Ve-beY" firstAttribute="leading" secondItem="fa4-Hy-rN8" secondAttribute="leading" id="sWQ-s8-098"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appointmentDateLabel" destination="IY6-Qf-Rrn" id="MD5-bR-wd0"/>
+                        <outlet property="bodyBackgroundView" destination="wid-Ve-beY" id="sjR-O0-V7q"/>
+                        <outlet property="dateButton" destination="TCc-4L-JXD" id="sXQ-Sj-Ca9"/>
+                        <outlet property="navigationBar" destination="0bT-ek-5F8" id="85R-pU-FKl"/>
+                        <outlet property="navigationBarItem" destination="Rto-Kr-6Af" id="JGk-VP-pGW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Egj-Fy-HMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5415.9420289855079" y="-1.3392857142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
