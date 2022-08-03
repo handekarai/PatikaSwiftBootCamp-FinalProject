@@ -21,6 +21,8 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
     @IBOutlet weak var secondSocketTableView: UITableView!
     @IBOutlet weak var thirdSocketTableView: UITableView!
     
+    let viewModel = DateSelectionViewModel()
+    
     var selectedStation: Station!
     var picker: PickerView!
     var popUp: PopUpView!
@@ -42,25 +44,15 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
         
         self.picker = PickerView(frame: self.view.frame)
         self.picker.delegate = self
+        
+        getOccupancy()
         setupUI()
     }
     
-    // prepares and show the picker pop up
-    private func showPicker(){
-        self.view.addSubview(picker)
-    }
-    
-    // prepares and show the pop up
-    private func showPopUp(){
-        self.popUp = PopUpView(frame: self.view.frame)
-        self.popUp.titleLabel.text = "Geçersiz Tarih"
-        self.popUp.descriptionLabel.text = "Geçmiş bir tarihe randevu alamazsınız."
-        self.popUp.firstOptionButton.addTarget(self, action: #selector(reSelectButtonTapped), for: .touchUpInside)
-        self.popUp.firstOptionButton.setTitle("DÜZENLE", for: .normal)
-        self.popUp.secondOptionButton.addTarget(self, action: #selector(choseTodayButtonTapped), for: .touchUpInside)
-        self.popUp.secondOptionButton.setTitle("BUGÜNÜ SEÇ", for: .normal)
-
-        self.view.addSubview(popUp)
+    private func getOccupancy(){
+        Task.init{
+            await viewModel.getStationOccupancy(stationID: selectedStation.id, date: dateButton.titleLabel?.text)
+        }
     }
     
     private func prepareAndShowSocketView(){
@@ -128,6 +120,24 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
         
         // show socket view according to sockect count
         prepareAndShowSocketView()
+    }
+    
+    // prepares and show the picker pop up
+    private func showPicker(){
+        self.view.addSubview(picker)
+    }
+    
+    // prepares and show the pop up
+    private func showPopUp(){
+        self.popUp = PopUpView(frame: self.view.frame)
+        self.popUp.titleLabel.text = "Geçersiz Tarih"
+        self.popUp.descriptionLabel.text = "Geçmiş bir tarihe randevu alamazsınız."
+        self.popUp.firstOptionButton.addTarget(self, action: #selector(reSelectButtonTapped), for: .touchUpInside)
+        self.popUp.firstOptionButton.setTitle("DÜZENLE", for: .normal)
+        self.popUp.secondOptionButton.addTarget(self, action: #selector(choseTodayButtonTapped), for: .touchUpInside)
+        self.popUp.secondOptionButton.setTitle("BUGÜNÜ SEÇ", for: .normal)
+
+        self.view.addSubview(popUp)
     }
     
     //MARK: - objc funcs
