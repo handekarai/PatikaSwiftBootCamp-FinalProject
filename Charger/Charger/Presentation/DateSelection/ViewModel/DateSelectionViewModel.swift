@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol DateSelectionViewModelDelegate: AnyObject {
+    func didStationOccupancyDataFetched(data : StationTimeDetail)
+}
+
+
+
 class DateSelectionViewModel: NSObject {
     
     // singleton pattern to access the location data anywhere in the project
@@ -16,6 +22,9 @@ class DateSelectionViewModel: NSObject {
     
     var stationID: Int!
     var date: String!
+    
+    weak var delegate: DateSelectionViewModelDelegate?       // for delegation pattern to its view controllers
+
     
     func getStationOccupancy(stationID: Int, date: String) async{
         
@@ -27,7 +36,7 @@ class DateSelectionViewModel: NSObject {
             
             switch result{
             case .success(let stationTimeDetail):
-                print(stationTimeDetail)
+                self?.delegate?.didStationOccupancyDataFetched(data: stationTimeDetail)
             case .failure(let error):
                 print(error)
             }

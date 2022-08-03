@@ -8,7 +8,7 @@
 import UIKit
 
 class DateSelectionViewController: UIViewController, PickerViewDelegate {
-    
+
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
     @IBOutlet weak var bodyBackgroundView: UIView!
@@ -26,10 +26,15 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
     var selectedStation: Station!
     var picker: PickerView!
     var popUp: PopUpView!
+    
+    var socketOneTimeSlots: [TimeSlot]?
+    var socketTwoTimeSlots: [TimeSlot]?
+    var socketThreeTimeSlots: [TimeSlot]?
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.firstSocketTableView.delegate = self
         self.secondSocketTableView.delegate = self
         self.thirdSocketTableView.delegate = self
@@ -37,24 +42,36 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
         self.firstSocketTableView.dataSource = self
         self.secondSocketTableView.dataSource = self
         self.thirdSocketTableView.dataSource = self
+        
+        // register cell for three table views
         firstSocketTableView.register(UINib(nibName: "TimeSlot", bundle: nil), forCellReuseIdentifier: "TimeSlotCell")
         secondSocketTableView.register(UINib(nibName: "TimeSlot", bundle: nil), forCellReuseIdentifier: "TimeSlotCell")
         thirdSocketTableView.register(UINib(nibName: "TimeSlot", bundle: nil), forCellReuseIdentifier: "TimeSlotCell")
 
-        
+        // picker popup
         self.picker = PickerView(frame: self.view.frame)
         self.picker.delegate = self
         
-        getOccupancy()
         setupUI()
+        
+        // get station occupancy for current date
+        getOccupancy(for: Date())
+
     }
     
-    private func getOccupancy(){
+    //MARK: - private funcs
+    // gets occupancy situation of station for specific date
+    private func getOccupancy(for date: Date){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let resultString = dateFormatter.string(from: date)
+
         Task.init{
-            await viewModel.getStationOccupancy(stationID: selectedStation.id, date: dateButton.titleLabel?.text)
+            await viewModel.getStationOccupancy(stationID: selectedStation.id, date: resultString)
         }
     }
     
+    // hide or show socket views
     private func prepareAndShowSocketView(){
         var count = 1
         for socket in selectedStation.sockets {
@@ -89,6 +106,8 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
     }
     
     private func setupUI () {
+        
+        viewModel.delegate = self
         
         // needed for safe area background color
         view.backgroundColor = UIColor.charcoalGrey
@@ -168,19 +187,30 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
             self.picker.removeFromSuperview()
             showPopUp()
         } else {
+            // get time slots data for chosen date
+            Task.init{
+                getOccupancy(for: date)
+            }
             let date = String(DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .none))
             dateButton.setTitle(date, for: .normal)
         }
     }
 }
 
-let hours = ["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00"]
-
-
+//MARK: - UITableViewDelegate funcs
 extension DateSelectionViewController: UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return hours.count
+        switch tableView{
+        case firstSocketTableView:
+            return socketOneTimeSlots?.count ?? 0
+        case secondSocketTableView:
+            return socketTwoTimeSlots?.count ?? 0
+        case thirdSocketTableView:
+            return socketThreeTimeSlots?.count ?? 0
+        default:
+            return 0
+        }
     }
     
     
@@ -194,7 +224,33 @@ extension DateSelectionViewController: UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeSlotCell", for: indexPath) as! TimeSlotTableViewCell
-        cell.label.text = hours[indexPath.section]
+        
+        var listToBeUsed: [TimeSlot]
+        
+        switch tableView{
+        case firstSocketTableView:
+            listToBeUsed = socketOneTimeSlots!
+        case secondSocketTableView:
+            listToBeUsed = socketTwoTimeSlots!
+        case thirdSocketTableView:
+            listToBeUsed = socketThreeTimeSlots!
+        default:
+            listToBeUsed = []
+        }
+        
+        if !listToBeUsed.isEmpty {
+            cell.label.text = listToBeUsed[indexPath.section].slot
+            
+            // if time slot is occupied by someone else, then do not let user interaction
+            if listToBeUsed[indexPath.section].isOccupied {
+                cell.isUserInteractionEnabled = false
+                cell.label.textColor = UIColor.whiteColor.withAlphaComponent(0.1)
+            } else {
+                cell.isUserInteractionEnabled = true
+                cell.label.textColor = UIColor.whiteColor
+            }
+        }
+
         return cell
     }
     
@@ -207,4 +263,33 @@ extension DateSelectionViewController: UITableViewDelegate,UITableViewDataSource
     
     
     
+}
+
+//MARK: - DateSelectionViewModelDelegate funcs
+extension DateSelectionViewController: DateSelectionViewModelDelegate {
+    
+    // reload table view according to data
+    func didStationOccupancyDataFetched(data: StationTimeDetail) {
+        let sockets = data.sockets
+        
+        switch sockets.count {
+        case 1:
+            socketOneTimeSlots = sockets[0].day.timeSlots
+        case 2:
+            socketOneTimeSlots = sockets[0].day.timeSlots
+            socketTwoTimeSlots = sockets[1].day.timeSlots
+
+        case 3:
+            socketOneTimeSlots = sockets[0].day.timeSlots
+            socketTwoTimeSlots = sockets[1].day.timeSlots
+            socketThreeTimeSlots = sockets[2].day.timeSlots
+        default:
+            break
+        }
+        DispatchQueue.main.async {
+            self.firstSocketTableView.reloadData()
+            self.secondSocketTableView.reloadData()
+            self.thirdSocketTableView.reloadData()
+        }
+    }
 }

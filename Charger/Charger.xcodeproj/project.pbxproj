@@ -53,7 +53,7 @@
 		6E3BF67C2883748500441C6F /* StationSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BF67B2883748500441C6F /* StationSelectionViewModel.swift */; };
 		6E3BF68028837C3C00441C6F /* StationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BF67F28837C3C00441C6F /* StationListViewController.swift */; };
 		6E3BF6872884923700441C6F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3BF6862884923600441C6F /* FilterViewController.swift */; };
-		6E86E6982897FE5C00E0DC77 /* StationWithTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6972897FE5C00E0DC77 /* StationWithTime.swift */; };
+		6E86E6982897FE5C00E0DC77 /* StationTimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6972897FE5C00E0DC77 /* StationTimeDetail.swift */; };
 		6E86E69A289801C400E0DC77 /* TimeSlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E699289801C400E0DC77 /* TimeSlotTableViewCell.swift */; };
 		6E86E6A02898076000E0DC77 /* TimeSlot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E86E69F2898076000E0DC77 /* TimeSlot.xib */; };
 		6E86E6A22899656100E0DC77 /* StationOccupancyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6A12899656100E0DC77 /* StationOccupancyEndpoint.swift */; };
@@ -139,7 +139,7 @@
 		6E3BF67B2883748500441C6F /* StationSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSelectionViewModel.swift; sourceTree = "<group>"; };
 		6E3BF67F28837C3C00441C6F /* StationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListViewController.swift; sourceTree = "<group>"; };
 		6E3BF6862884923600441C6F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		6E86E6972897FE5C00E0DC77 /* StationWithTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWithTime.swift; sourceTree = "<group>"; };
+		6E86E6972897FE5C00E0DC77 /* StationTimeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimeDetail.swift; sourceTree = "<group>"; };
 		6E86E699289801C400E0DC77 /* TimeSlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotTableViewCell.swift; sourceTree = "<group>"; };
 		6E86E69F2898076000E0DC77 /* TimeSlot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeSlot.xib; sourceTree = "<group>"; };
 		6E86E6A12899656100E0DC77 /* StationOccupancyEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationOccupancyEndpoint.swift; sourceTree = "<group>"; };
@@ -425,6 +425,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		6E86E6A7289A94D500E0DC77 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				6EA2FE5328918E7900822C0C /* Picker.xib */,
+				6EA2FE5528918E9400822C0C /* PickerView.swift */,
+				6E86E699289801C400E0DC77 /* TimeSlotTableViewCell.swift */,
+				6E86E69F2898076000E0DC77 /* TimeSlot.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		6E913CD5287AEE9B007ACE49 /* Appointments */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,11 +485,8 @@
 		6EA2FE4A2890308300822C0C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E86E6A7289A94D500E0DC77 /* Xib */,
 				6EA2FE4D289030D200822C0C /* DateSelectionViewController.swift */,
-				6EA2FE5328918E7900822C0C /* Picker.xib */,
-				6EA2FE5528918E9400822C0C /* PickerView.swift */,
-				6E86E699289801C400E0DC77 /* TimeSlotTableViewCell.swift */,
-				6E86E69F2898076000E0DC77 /* TimeSlot.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,7 +494,7 @@
 		6EA2FE4B2890308A00822C0C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6E86E6972897FE5C00E0DC77 /* StationWithTime.swift */,
+				6E86E6972897FE5C00E0DC77 /* StationTimeDetail.swift */,
 				6E86E6A5289966EB00E0DC77 /* DateSelectionModel.swift */,
 			);
 			path = Model;
@@ -757,7 +765,7 @@
 				6E86E6A22899656100E0DC77 /* StationOccupancyEndpoint.swift in Sources */,
 				6E3BF6662882175C00441C6F /* UIImage+Extensions.swift in Sources */,
 				6E3BF66C2882267800441C6F /* CitySelectionViewModel.swift in Sources */,
-				6E86E6982897FE5C00E0DC77 /* StationWithTime.swift in Sources */,
+				6E86E6982897FE5C00E0DC77 /* StationTimeDetail.swift in Sources */,
 				6E1BFBD4286DDE4300796725 /* Theme.swift in Sources */,
 				6E86E6A42899663D00E0DC77 /* DateSelectionViewModel.swift in Sources */,
 				6E3BF6622881F0BE00441C6F /* CitySelectionViewController.swift in Sources */,
