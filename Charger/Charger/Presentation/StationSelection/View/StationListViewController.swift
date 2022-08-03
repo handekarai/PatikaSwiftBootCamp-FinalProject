@@ -199,6 +199,16 @@ extension StationListViewController: UITableViewDelegate, UITableViewDataSource 
         headerView.backgroundColor = view.backgroundColor
         return headerView
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // open date selection page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "DateSelectionViewController") as? DateSelectionViewController {
+            vc.selectedStation = searching ? self.searchedStationList[indexPath.section] : self.stationList[indexPath.section]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
 
 //MARK: - StationSelectionViewModelDelegate funcs

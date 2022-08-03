@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerView" customModule="Charger" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="q5Y-0j-eNZ" id="j0c-CO-Od9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="q5Y-0j-eNZ">
+                    <rect key="frame" x="0.0" y="646" width="414" height="250"/>
+                    <color key="backgroundColor" name="White"/>
+                    <color key="tintColor" name="White"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="hcv-nH-Dac"/>
+                    </constraints>
+                    <date key="maximumDate" timeIntervalSinceReferenceDate="694177200">
+                        <!--2022-12-31 11:00:00 +0000-->
+                    </date>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="highlightsToday" value="NO"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                            <color key="value" name="White"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="dateValueChanged:" destination="-1" eventType="valueChanged" id="ZND-aR-EaR"/>
+                    </connections>
+                </datePicker>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7h-nd-DVy">
+                    <rect key="frame" x="1" y="45" width="412" height="596"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="iwK-vY-gXS" appends="YES" id="BfM-V3-ZlE"/>
+                    </connections>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.37956509777426362" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="q5Y-0j-eNZ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1Ou-Yf-eAY"/>
+                <constraint firstItem="q5Y-0j-eNZ" firstAttribute="top" secondItem="I7h-nd-DVy" secondAttribute="bottom" constant="5" id="2o7-Sj-V1m"/>
+                <constraint firstItem="I7h-nd-DVy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="1" id="N7w-0C-cLR"/>
+                <constraint firstItem="I7h-nd-DVy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="1" id="OTp-mA-s36"/>
+                <constraint firstAttribute="bottom" secondItem="q5Y-0j-eNZ" secondAttribute="bottom" id="Uzd-4K-j6V"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I7h-nd-DVy" secondAttribute="trailing" constant="1" id="dPV-yM-OhC"/>
+                <constraint firstItem="q5Y-0j-eNZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kOV-bW-QXQ"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
+        </view>
+        <tapGestureRecognizer id="iwK-vY-gXS">
+            <connections>
+                <action selector="viewOutsidePickerTapped:" destination="-1" id="GBG-nf-4WU"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -862,13 +862,13 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjQ-xa-fcX">
-                                        <rect key="frame" x="67" y="668" width="280" height="50"/>
+                                        <rect key="frame" x="67" y="698" width="280" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="uE7-vZ-VYk"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="FİLTRELE" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                             <color key="baseForegroundColor" name="Dark"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -883,7 +883,7 @@
                                     <constraint firstAttribute="trailing" secondItem="UzK-9R-06w" secondAttribute="trailing" constant="20" id="4Ou-YU-a5w"/>
                                     <constraint firstItem="cDc-s0-dJQ" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="623-qh-Q6Z"/>
                                     <constraint firstItem="YEh-Dt-JIn" firstAttribute="leading" secondItem="sUT-s7-MMm" secondAttribute="trailing" constant="15" id="7vK-CD-J6P"/>
-                                    <constraint firstAttribute="bottom" secondItem="AjQ-xa-fcX" secondAttribute="bottom" constant="90" id="9X7-Zk-OY1"/>
+                                    <constraint firstAttribute="bottom" secondItem="AjQ-xa-fcX" secondAttribute="bottom" constant="60" id="9X7-Zk-OY1"/>
                                     <constraint firstItem="KNy-Wv-Zht" firstAttribute="leading" secondItem="WFo-ci-UQ4" secondAttribute="leading" constant="20" id="BTW-7l-3jJ"/>
                                     <constraint firstItem="VyW-VD-w3r" firstAttribute="top" secondItem="WUo-wJ-HnD" secondAttribute="bottom" constant="20" id="DLz-mt-bnC"/>
                                     <constraint firstItem="NLZ-Rr-ATx" firstAttribute="top" secondItem="sUT-s7-MMm" secondAttribute="bottom" constant="35" id="Dmb-sD-gbe"/>
@@ -1099,6 +1099,134 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0C-lk-LaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3931.884057971015" y="748.99553571428567"/>
+        </scene>
+        <!--Date Selection View Controller-->
+        <scene sceneID="2Bj-hH-s9L">
+            <objects>
+                <viewController storyboardIdentifier="DateSelectionViewController" id="FXu-Qh-x2a" customClass="DateSelectionViewController" customModule="Charger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ygp-kc-XAB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-ek-5F8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ggr-tK-24l"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Tarih ve Saat Seçin" id="Rto-Kr-6Af"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wid-Ve-beY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="DhG-vk-tPq">
+                                        <rect key="frame" x="15" y="20" width="398" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Randevu Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-Qf-Rrn">
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-4L-JXD">
+                                                <rect key="frame" x="331" y="0.0" width="67" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="dateButtonTapped:" destination="FXu-Qh-x2a" eventType="touchUpInside" id="aDT-Xd-v0f"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="WC8-bs-ubA"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jM-zB-Hkr">
+                                        <rect key="frame" x="67" y="698" width="280" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sm6-E3-MmF"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="TARİH VE SAATİ ONAYLA" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="baseForegroundColor" name="Dark"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="approveDateAndTimeButtonTapped:" destination="FXu-Qh-x2a" eventType="touchUpInside" id="RNg-Ir-bOX"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ErY-Bc-qQS">
+                                        <rect key="frame" x="15" y="100" width="384" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="b5w-4d-m8u"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3ar-dx-6MQ">
+                                        <rect key="frame" x="15" y="185" width="384" height="498"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SKd-J4-Efm">
+                                                <rect key="frame" x="0.0" y="0.0" width="118" height="498"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TrA-EX-UKm">
+                                                <rect key="frame" x="133" y="0.0" width="118" height="498"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z44-7E-Ygz">
+                                                <rect key="frame" x="266" y="0.0" width="118" height="498"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ErY-Bc-qQS" secondAttribute="trailing" constant="15" id="0GM-7v-TfK"/>
+                                    <constraint firstItem="2jM-zB-Hkr" firstAttribute="top" secondItem="3ar-dx-6MQ" secondAttribute="bottom" constant="15" id="5aJ-DO-qCa"/>
+                                    <constraint firstAttribute="trailing" secondItem="2jM-zB-Hkr" secondAttribute="trailing" constant="67" id="8Eb-AX-4wg"/>
+                                    <constraint firstItem="DhG-vk-tPq" firstAttribute="top" secondItem="wid-Ve-beY" secondAttribute="top" constant="20" id="ASu-6J-D5F"/>
+                                    <constraint firstItem="DhG-vk-tPq" firstAttribute="leading" secondItem="wid-Ve-beY" secondAttribute="leading" constant="15" id="BBI-U7-IZb"/>
+                                    <constraint firstAttribute="trailing" secondItem="3ar-dx-6MQ" secondAttribute="trailing" constant="15" id="C2a-JV-ZfW"/>
+                                    <constraint firstItem="ErY-Bc-qQS" firstAttribute="top" secondItem="DhG-vk-tPq" secondAttribute="bottom" constant="30" id="E2n-Sd-2q7"/>
+                                    <constraint firstItem="ErY-Bc-qQS" firstAttribute="leading" secondItem="wid-Ve-beY" secondAttribute="leading" constant="15" id="EuF-at-Xrl"/>
+                                    <constraint firstItem="2jM-zB-Hkr" firstAttribute="leading" secondItem="wid-Ve-beY" secondAttribute="leading" constant="67" id="Faf-6D-7mT"/>
+                                    <constraint firstAttribute="bottom" secondItem="2jM-zB-Hkr" secondAttribute="bottom" constant="60" id="Onp-gG-AKT"/>
+                                    <constraint firstItem="3ar-dx-6MQ" firstAttribute="top" secondItem="ErY-Bc-qQS" secondAttribute="bottom" constant="5" id="e2y-vj-XUK"/>
+                                    <constraint firstAttribute="trailing" secondItem="DhG-vk-tPq" secondAttribute="trailing" constant="1" id="vOr-1n-yVX"/>
+                                    <constraint firstItem="3ar-dx-6MQ" firstAttribute="leading" secondItem="wid-Ve-beY" secondAttribute="leading" constant="15" id="zWS-pX-u31"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fa4-Hy-rN8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wid-Ve-beY" firstAttribute="top" secondItem="0bT-ek-5F8" secondAttribute="bottom" id="DBW-9c-Gn1"/>
+                            <constraint firstItem="0bT-ek-5F8" firstAttribute="leading" secondItem="fa4-Hy-rN8" secondAttribute="leading" id="H7g-AX-pkC"/>
+                            <constraint firstItem="0bT-ek-5F8" firstAttribute="top" secondItem="fa4-Hy-rN8" secondAttribute="top" id="H82-E9-3Ib"/>
+                            <constraint firstItem="wid-Ve-beY" firstAttribute="trailing" secondItem="fa4-Hy-rN8" secondAttribute="trailing" id="TRo-cn-yoF"/>
+                            <constraint firstAttribute="bottom" secondItem="wid-Ve-beY" secondAttribute="bottom" id="euw-zU-Xq8"/>
+                            <constraint firstItem="0bT-ek-5F8" firstAttribute="trailing" secondItem="fa4-Hy-rN8" secondAttribute="trailing" id="r5A-9a-0ZO"/>
+                            <constraint firstItem="wid-Ve-beY" firstAttribute="leading" secondItem="fa4-Hy-rN8" secondAttribute="leading" id="sWQ-s8-098"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appointmentDateLabel" destination="IY6-Qf-Rrn" id="MD5-bR-wd0"/>
+                        <outlet property="approveDateAndTimeButton" destination="2jM-zB-Hkr" id="00E-g9-zwY"/>
+                        <outlet property="bodyBackgroundView" destination="wid-Ve-beY" id="sjR-O0-V7q"/>
+                        <outlet property="dateButton" destination="TCc-4L-JXD" id="sXQ-Sj-Ca9"/>
+                        <outlet property="firstSocketTableView" destination="SKd-J4-Efm" id="frA-Ti-3LA"/>
+                        <outlet property="navigationBar" destination="0bT-ek-5F8" id="85R-pU-FKl"/>
+                        <outlet property="navigationBarItem" destination="Rto-Kr-6Af" id="JGk-VP-pGW"/>
+                        <outlet property="secondSocketTableView" destination="TrA-EX-UKm" id="lTV-nk-n4R"/>
+                        <outlet property="socketsNameStackView" destination="ErY-Bc-qQS" id="ex5-No-Gev"/>
+                        <outlet property="socketsSlotsStackView" destination="3ar-dx-6MQ" id="uwl-Je-QYJ"/>
+                        <outlet property="thirdSocketTableView" destination="z44-7E-Ygz" id="ppP-0a-dCH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Egj-Fy-HMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5415.9420289855079" y="-1.3392857142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
