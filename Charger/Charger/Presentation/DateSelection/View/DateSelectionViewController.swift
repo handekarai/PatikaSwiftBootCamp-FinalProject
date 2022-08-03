@@ -30,7 +30,15 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
     var socketOneTimeSlots: [TimeSlot]?
     var socketTwoTimeSlots: [TimeSlot]?
     var socketThreeTimeSlots: [TimeSlot]?
-
+    
+    var selectedRowInFirstTableView: IndexPath?
+    var selectedRowInSecondTableView: IndexPath?
+    var selectedRowInThirdTableView: IndexPath?
+    
+    var selectedTime: String?
+    var selectedDate: String?
+    var selectedSocket: SocketWithTime?
+    var sockets: [SocketWithTime]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +73,7 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let resultString = dateFormatter.string(from: date)
-
+        selectedDate = resultString
         Task.init{
             await viewModel.getStationOccupancy(stationID: selectedStation.id, date: resultString)
         }
@@ -180,6 +188,17 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
         showPicker()
     }
     
+    @IBAction func approveDateAndTimeButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailViewController") as? AppointmentDetailViewController{
+            vc.selectedStation = selectedStation
+            vc.selectedSocket = selectedSocket
+            vc.selectedTime = selectedTime
+            vc.selectedDate = selectedDate
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    
+    }
     
     func didDateSelected(date: Date) {
         // if date is passed than show popup
@@ -212,7 +231,6 @@ extension DateSelectionViewController: UITableViewDelegate,UITableViewDataSource
             return 0
         }
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -261,6 +279,58 @@ extension DateSelectionViewController: UITableViewDelegate,UITableViewDataSource
         return headerView
     }
     
+    // if one table views row selected deslected other table views rows
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch tableView{
+        case firstSocketTableView:
+            selectedRowInFirstTableView = indexPath
+            selectedTime = socketOneTimeSlots?[indexPath.section].slot
+            selectedSocket = sockets?[0]
+
+            if let lastSelected = selectedRowInSecondTableView {
+                secondSocketTableView.deselectRow(at: lastSelected, animated: true)
+                selectedRowInSecondTableView = nil
+
+            }
+            if let lastSelected = selectedRowInThirdTableView {
+                thirdSocketTableView.deselectRow(at: lastSelected, animated: true)
+                selectedRowInThirdTableView = nil
+            }
+
+        case secondSocketTableView:
+            selectedRowInSecondTableView = indexPath
+            selectedTime = socketTwoTimeSlots?[indexPath.section].slot
+            selectedSocket = sockets?[1]
+
+            if let lastSelected = selectedRowInFirstTableView {
+                firstSocketTableView.deselectRow(at: lastSelected, animated: true)
+                selectedRowInFirstTableView = nil
+            }
+            if let lastSelected = selectedRowInThirdTableView {
+                thirdSocketTableView.deselectRow(at: lastSelected, animated: true)
+                selectedRowInThirdTableView = nil
+
+            }
+
+        case thirdSocketTableView:
+            selectedRowInThirdTableView = indexPath
+            selectedTime = socketThreeTimeSlots?[indexPath.section].slot
+            selectedSocket = sockets?[2]
+
+            if let lastSelected = selectedRowInFirstTableView {
+                firstSocketTableView.deselectRow(at: lastSelected, animated: true)
+                selectedRowInFirstTableView = nil
+            }
+            if let lastSelected = selectedRowInSecondTableView {
+                secondSocketTableView.deselectRow(at: lastSelected, animated: true)
+                selectedRowInSecondTableView = nil
+            }
+
+        default:
+            break
+        }
+    }
     
     
 }
@@ -270,19 +340,19 @@ extension DateSelectionViewController: DateSelectionViewModelDelegate {
     
     // reload table view according to data
     func didStationOccupancyDataFetched(data: StationTimeDetail) {
-        let sockets = data.sockets
+        sockets = data.sockets
         
-        switch sockets.count {
+        switch sockets?.count {
         case 1:
-            socketOneTimeSlots = sockets[0].day.timeSlots
+            socketOneTimeSlots = sockets?[0].day.timeSlots
         case 2:
-            socketOneTimeSlots = sockets[0].day.timeSlots
-            socketTwoTimeSlots = sockets[1].day.timeSlots
+            socketOneTimeSlots = sockets?[0].day.timeSlots
+            socketTwoTimeSlots = sockets?[1].day.timeSlots
 
         case 3:
-            socketOneTimeSlots = sockets[0].day.timeSlots
-            socketTwoTimeSlots = sockets[1].day.timeSlots
-            socketThreeTimeSlots = sockets[2].day.timeSlots
+            socketOneTimeSlots = sockets?[0].day.timeSlots
+            socketTwoTimeSlots = sockets?[1].day.timeSlots
+            socketThreeTimeSlots = sockets?[2].day.timeSlots
         default:
             break
         }
