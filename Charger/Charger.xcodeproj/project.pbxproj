@@ -59,6 +59,7 @@
 		6E86E6A22899656100E0DC77 /* StationOccupancyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6A12899656100E0DC77 /* StationOccupancyEndpoint.swift */; };
 		6E86E6A42899663D00E0DC77 /* DateSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6A32899663D00E0DC77 /* DateSelectionViewModel.swift */; };
 		6E86E6A6289966EB00E0DC77 /* DateSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6A5289966EB00E0DC77 /* DateSelectionModel.swift */; };
+		6E86E6AB289AAF3D00E0DC77 /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6AA289AAF3D00E0DC77 /* AppointmentDetailViewController.swift */; };
 		6E913CDA287AEF07007ACE49 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CD9287AEF07007ACE49 /* AppointmentsViewController.swift */; };
 		6E913CDC287AF0CB007ACE49 /* AppointmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDB287AF0CB007ACE49 /* AppointmentsViewModel.swift */; };
 		6E913CE0287B575A007ACE49 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */; };
@@ -145,6 +146,7 @@
 		6E86E6A12899656100E0DC77 /* StationOccupancyEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationOccupancyEndpoint.swift; sourceTree = "<group>"; };
 		6E86E6A32899663D00E0DC77 /* DateSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewModel.swift; sourceTree = "<group>"; };
 		6E86E6A5289966EB00E0DC77 /* DateSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionModel.swift; sourceTree = "<group>"; };
+		6E86E6AA289AAF3D00E0DC77 /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		6E913CD9287AEF07007ACE49 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		6E913CDB287AF0CB007ACE49 /* AppointmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewModel.swift; sourceTree = "<group>"; };
 		6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
@@ -436,6 +438,22 @@
 			path = Xib;
 			sourceTree = "<group>";
 		};
+		6E86E6A8289AAF1700E0DC77 /* AppointmentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6E86E6A9289AAF2400E0DC77 /* View */,
+			);
+			path = AppointmentDetail;
+			sourceTree = "<group>";
+		};
+		6E86E6A9289AAF2400E0DC77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E86E6AA289AAF3D00E0DC77 /* AppointmentDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E913CD5287AEE9B007ACE49 /* Appointments */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +529,7 @@
 		6EE451622874A96B0045820E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6E86E6A8289AAF1700E0DC77 /* AppointmentDetail */,
 				6EA2FE492890304500822C0C /* DateSelection */,
 				6E3BF682288491F300441C6F /* Filter */,
 				6E3BF68128845B8F00441C6F /* Cell */,
@@ -737,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E3BF67428835F7F00441C6F /* StationSelectionViewController.swift in Sources */,
+				6E86E6AB289AAF3D00E0DC77 /* AppointmentDetailViewController.swift in Sources */,
 				6E037BDE288981840023C12D /* Filter.swift in Sources */,
 				6EA2FE5028917AD900822C0C /* UILabel+Extensions.swift in Sources */,
 				6E3BF657288197D900441C6F /* LogoutEndpoint.swift in Sources */,
