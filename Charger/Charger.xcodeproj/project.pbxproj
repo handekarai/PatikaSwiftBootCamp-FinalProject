@@ -60,6 +60,9 @@
 		6E86E6A42899663D00E0DC77 /* DateSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6A32899663D00E0DC77 /* DateSelectionViewModel.swift */; };
 		6E86E6A6289966EB00E0DC77 /* DateSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6A5289966EB00E0DC77 /* DateSelectionModel.swift */; };
 		6E86E6AB289AAF3D00E0DC77 /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6AA289AAF3D00E0DC77 /* AppointmentDetailViewController.swift */; };
+		6E86E6B5289DBDA500E0DC77 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6B4289DBDA500E0DC77 /* PickerView.swift */; };
+		6E86E6B7289DC64700E0DC77 /* NotificationTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6B6289DC64700E0DC77 /* NotificationTimePickerView.swift */; };
+		6E86E6BB289DD8CD00E0DC77 /* NotificationTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E86E6BA289DD8CC00E0DC77 /* NotificationTimePicker.xib */; };
 		6E913CDA287AEF07007ACE49 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CD9287AEF07007ACE49 /* AppointmentsViewController.swift */; };
 		6E913CDC287AF0CB007ACE49 /* AppointmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDB287AF0CB007ACE49 /* AppointmentsViewModel.swift */; };
 		6E913CE0287B575A007ACE49 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */; };
@@ -68,7 +71,6 @@
 		6EA2FE4E289030D200822C0C /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2FE4D289030D200822C0C /* DateSelectionViewController.swift */; };
 		6EA2FE5028917AD900822C0C /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2FE4F28917AD900822C0C /* UILabel+Extensions.swift */; };
 		6EA2FE5428918E7900822C0C /* Picker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA2FE5328918E7900822C0C /* Picker.xib */; };
-		6EA2FE5628918E9400822C0C /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2FE5528918E9400822C0C /* PickerView.swift */; };
 		6ECA04D02884AA4E006C5DD9 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */; };
 		6EE451712874AB950045820E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4516B2874AB950045820E /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -147,6 +149,9 @@
 		6E86E6A32899663D00E0DC77 /* DateSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewModel.swift; sourceTree = "<group>"; };
 		6E86E6A5289966EB00E0DC77 /* DateSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionModel.swift; sourceTree = "<group>"; };
 		6E86E6AA289AAF3D00E0DC77 /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
+		6E86E6B4289DBDA500E0DC77 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		6E86E6B6289DC64700E0DC77 /* NotificationTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimePickerView.swift; sourceTree = "<group>"; };
+		6E86E6BA289DD8CC00E0DC77 /* NotificationTimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTimePicker.xib; sourceTree = "<group>"; };
 		6E913CD9287AEF07007ACE49 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		6E913CDB287AF0CB007ACE49 /* AppointmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewModel.swift; sourceTree = "<group>"; };
 		6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
@@ -155,7 +160,6 @@
 		6EA2FE4D289030D200822C0C /* DateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
 		6EA2FE4F28917AD900822C0C /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		6EA2FE5328918E7900822C0C /* Picker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Picker.xib; sourceTree = "<group>"; };
-		6EA2FE5528918E9400822C0C /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		6ECA04CF2884AA4E006C5DD9 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		6EE4516B2874AB950045820E /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6EE4516F2874AB950045820E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -431,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA2FE5328918E7900822C0C /* Picker.xib */,
-				6EA2FE5528918E9400822C0C /* PickerView.swift */,
+				6E86E6B4289DBDA500E0DC77 /* PickerView.swift */,
 				6E86E699289801C400E0DC77 /* TimeSlotTableViewCell.swift */,
 				6E86E69F2898076000E0DC77 /* TimeSlot.xib */,
 			);
@@ -450,6 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				6E86E6AA289AAF3D00E0DC77 /* AppointmentDetailViewController.swift */,
+				6E86E6BA289DD8CC00E0DC77 /* NotificationTimePicker.xib */,
+				6E86E6B6289DC64700E0DC77 /* NotificationTimePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -731,6 +737,7 @@
 				6E31F22428764D400095098F /* PopUp.xib in Resources */,
 				6E1BFBAD286CF4D100796725 /* Assets.xcassets in Resources */,
 				6E86E6A02898076000E0DC77 /* TimeSlot.xib in Resources */,
+				6E86E6BB289DD8CD00E0DC77 /* NotificationTimePicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +771,7 @@
 				6E3BF67A288373EC00441C6F /* StationSelectionModel.swift in Sources */,
 				6E3BF668288223C700441C6F /* CityEndpoint.swift in Sources */,
 				6E1BFBA8286CF4CD00796725 /* ViewController.swift in Sources */,
+				6E86E6B7289DC64700E0DC77 /* NotificationTimePickerView.swift in Sources */,
 				6E31F22228763A9D0095098F /* String+Extensions.swift in Sources */,
 				6E1BFBA4286CF4CD00796725 /* AppDelegate.swift in Sources */,
 				6E3BF6782883721400441C6F /* StationsEndpoint.swift in Sources */,
@@ -777,7 +785,6 @@
 				6E31F22028762A1F0095098F /* UITextField+Extensions.swift in Sources */,
 				6E3BF65428818F4C00441C6F /* ProfileModel.swift in Sources */,
 				6E913CE7287B6A9C007ACE49 /* InfoCardTableViewCell.swift in Sources */,
-				6EA2FE5628918E9400822C0C /* PickerView.swift in Sources */,
 				6ECA04D02884AA4E006C5DD9 /* Encodable+Extensions.swift in Sources */,
 				6E31F21E287629340095098F /* UIView+Extensions.swift in Sources */,
 				6E31F23E2878F09B0095098F /* User.swift in Sources */,
@@ -793,6 +800,7 @@
 				6E3BF68028837C3C00441C6F /* StationListViewController.swift in Sources */,
 				6E3BF6642881FA4A00441C6F /* UINavigationBar+Extensions.swift in Sources */,
 				6E3BF647287E380100441C6F /* DeleteAppointmentEndpoint.swift in Sources */,
+				6E86E6B5289DBDA500E0DC77 /* PickerView.swift in Sources */,
 				6E3BF645287DAA0800441C6F /* Appointment.swift in Sources */,
 				6E31F2442878F10E0095098F /* Endpoint.swift in Sources */,
 				6E31F23C2878F0720095098F /* LoginModel.swift in Sources */,

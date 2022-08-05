@@ -6,7 +6,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -239,13 +238,13 @@
                                 <rect key="frame" x="32" y="290" width="350" height="108.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henüz bir randevu oluşturmadınız." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsW-c2-dhP">
-                                        <rect key="frame" x="66.5" y="0.0" width="217" height="41.5"/>
+                                        <rect key="frame" x="66.5" y="0.0" width="217" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oluşturulan randevular burada listelenir." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-CL-IXT">
-                                        <rect key="frame" x="31" y="70.5" width="288" height="38"/>
+                                        <rect key="frame" x="31" y="89" width="288" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="GrayScale"/>
                                         <nil key="highlightedColor"/>
@@ -1264,7 +1263,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="445" height="1242"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KWg-e3-A3v">
-                                                <rect key="frame" x="0.0" y="15" width="445" height="982"/>
+                                                <rect key="frame" x="0.0" y="15" width="445" height="983"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   İSTASYON BİLGİLERİ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq2-HP-EXh">
                                                         <rect key="frame" x="0.0" y="0.0" width="445" height="19.5"/>
@@ -1461,7 +1460,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dWu-bX-07K">
-                                                        <rect key="frame" x="0.0" y="695.5" width="445" height="286.5"/>
+                                                        <rect key="frame" x="0.0" y="695.5" width="445" height="287.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4Fd-Zv-ncy">
                                                                 <rect key="frame" x="0.0" y="20" width="445" height="36.5"/>
@@ -1535,17 +1534,15 @@
                                                                 </subviews>
                                                                 <edgeInsets key="layoutMargins" top="8" left="12" bottom="8" right="12"/>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZh-la-oW0">
-                                                                <rect key="frame" x="0.0" y="236.5" width="445" height="30"/>
-                                                                <menu key="menu" id="m0h-el-cAI">
-                                                                    <children>
-                                                                        <command title="Item 1" id="n14-0w-rdn"/>
-                                                                        <command title="Item 2" id="gKb-7G-Lwd"/>
-                                                                    </children>
-                                                                </menu>
-                                                                <state key="normal" title="Button">
-                                                                    <color key="titleColor" name="White"/>
-                                                                </state>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yxh-jj-Akc">
+                                                                <rect key="frame" x="0.0" y="236.5" width="445" height="31"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                                    <color key="baseForegroundColor" name="White"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="notificationTimeButtonTapped:" destination="bNF-OU-xSV" eventType="touchUpInside" id="VO0-mJ-54a"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" name="CharcoalGrey"/>
@@ -1603,7 +1600,7 @@
                         <outlet property="navigationBar" destination="ixo-5t-2Et" id="j1s-bp-zJc"/>
                         <outlet property="navigationBarItem" destination="LzN-Pa-0aV" id="I4Q-xp-cKx"/>
                         <outlet property="notificationSwitch" destination="yiH-lb-VQJ" id="Bfq-lC-zsY"/>
-                        <outlet property="notificationTimeButton" destination="wZh-la-oW0" id="sDv-A7-hiH"/>
+                        <outlet property="notificationTimeButton" destination="Yxh-jj-Akc" id="uU0-aC-EiU"/>
                         <outlet property="powerLabel" destination="oWw-HU-qIe" id="D3P-bV-a5e"/>
                         <outlet property="servicesLabel" destination="6fs-Z8-9Q2" id="tcw-mr-gqe"/>
                         <outlet property="socketNoLabel" destination="fKu-k6-h5l" id="yUl-Sr-jlj"/>

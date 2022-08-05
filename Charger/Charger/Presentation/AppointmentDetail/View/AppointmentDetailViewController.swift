@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppointmentDetailViewController: UIViewController {
+class AppointmentDetailViewController: UIViewController  {
 
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationBarItem: UINavigationItem!
@@ -32,8 +32,19 @@ class AppointmentDetailViewController: UIViewController {
     var selectedDate: String!
     var dateButtonText: String!
     
+    var notificationPickerView: NotificationTimePickerView!
+    var popUp: PopUpView!
+    
+    let notificaonTimes = ["5 dakika önce", "10 dakika önce", "15 dakika önce", "30 dakika önce", "1 saat önce", "2 saat önce","3 saat önce"]
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // notificationPicker popup
+        self.notificationPickerView = NotificationTimePickerView(frame: self.view.frame)
+        self.notificationPickerView.notificationPicker.delegate = self
+        self.notificationPickerView.notificationPicker.dataSource = self
 
         setupUI()
     }
@@ -76,6 +87,12 @@ class AppointmentDetailViewController: UIViewController {
         timeLabel.text = selectedTime
         
         notificationTimeButton.isHidden =  notificationSwitch.isOn ? false : true
+        notificationTimeButton.setTitle(notificaonTimes[0], for: .normal)
+    }
+    
+    // prepares and show the notification time picker pop up
+    private func showNotificationPicker(){
+        self.view.addSubview(notificationPickerView)
     }
     
     //MARK: - objc funcs
@@ -89,5 +106,27 @@ class AppointmentDetailViewController: UIViewController {
         } else {
             notificationTimeButton.isHidden = true
         }
+    }
+    @IBAction func notificationTimeButtonTapped(_ sender: Any) {
+        showNotificationPicker()
+    }
+}
+
+extension AppointmentDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return notificaonTimes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+         return notificaonTimes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
     }
 }

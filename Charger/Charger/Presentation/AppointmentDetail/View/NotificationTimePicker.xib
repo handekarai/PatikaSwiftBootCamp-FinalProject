@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationTimePickerView" customModule="Charger" customModuleProvider="target">
+            <connections>
+                <outlet property="notificationPicker" destination="f66-7e-0Pa" id="ryP-zr-27Z"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="4DJ-Jm-5ML">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijV-A4-rzQ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="602"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.38" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="LYE-Tg-tvR" appends="YES" id="lqc-Pv-yJC"/>
+                    </connections>
+                </view>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f66-7e-0Pa">
+                    <rect key="frame" x="0.0" y="646" width="414" height="250"/>
+                    <color key="backgroundColor" name="Dark"/>
+                    <color key="tintColor" name="White"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="9sO-nU-ZoW"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </pickerView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="xPs-tY-DkK"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="ijV-A4-rzQ" firstAttribute="leading" secondItem="xPs-tY-DkK" secondAttribute="leading" id="38k-Ez-bUs"/>
+                <constraint firstAttribute="bottom" secondItem="f66-7e-0Pa" secondAttribute="bottom" id="4XP-RX-GkE"/>
+                <constraint firstItem="f66-7e-0Pa" firstAttribute="trailing" secondItem="xPs-tY-DkK" secondAttribute="trailing" id="Bfy-K2-Nnd"/>
+                <constraint firstAttribute="bottom" secondItem="f66-7e-0Pa" secondAttribute="bottom" id="EbN-ND-Eni"/>
+                <constraint firstItem="ijV-A4-rzQ" firstAttribute="top" secondItem="xPs-tY-DkK" secondAttribute="top" id="KYo-UG-Kz9"/>
+                <constraint firstItem="xPs-tY-DkK" firstAttribute="trailing" secondItem="ijV-A4-rzQ" secondAttribute="trailing" id="Kmk-8E-xOd"/>
+                <constraint firstItem="ijV-A4-rzQ" firstAttribute="top" secondItem="xPs-tY-DkK" secondAttribute="top" id="eDF-8M-wgP"/>
+                <constraint firstItem="f66-7e-0Pa" firstAttribute="top" secondItem="ijV-A4-rzQ" secondAttribute="bottom" id="jcM-V5-0Vz"/>
+                <constraint firstItem="f66-7e-0Pa" firstAttribute="leading" secondItem="xPs-tY-DkK" secondAttribute="leading" id="sHF-G2-rVq"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
+        </view>
+        <tapGestureRecognizer id="LYE-Tg-tvR">
+            <connections>
+                <action selector="outsideOfPickerTapped:" destination="-1" id="KRz-fM-42W"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <namedColor name="Dark">
+            <color red="0.10196078431372549" green="0.11764705882352941" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
