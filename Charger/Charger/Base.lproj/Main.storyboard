@@ -238,13 +238,13 @@
                                 <rect key="frame" x="32" y="290" width="350" height="108.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henüz bir randevu oluşturmadınız." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsW-c2-dhP">
-                                        <rect key="frame" x="66.5" y="0.0" width="217" height="60"/>
+                                        <rect key="frame" x="66.5" y="0.0" width="217" height="41.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" name="White"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oluşturulan randevular burada listelenir." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-CL-IXT">
-                                        <rect key="frame" x="31" y="89" width="288" height="19.5"/>
+                                        <rect key="frame" x="31" y="70.5" width="288" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="GrayScale"/>
                                         <nil key="highlightedColor"/>
@@ -1258,6 +1258,9 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                             <color key="baseForegroundColor" name="Dark"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="approveButtonTapped:" destination="bNF-OU-xSV" eventType="touchUpInside" id="lFR-S0-maX"/>
+                                        </connections>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meE-9v-vBu">
                                         <rect key="frame" x="0.0" y="0.0" width="445" height="1242"/>

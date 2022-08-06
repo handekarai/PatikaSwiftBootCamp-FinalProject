@@ -63,6 +63,10 @@
 		6E86E6B5289DBDA500E0DC77 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6B4289DBDA500E0DC77 /* PickerView.swift */; };
 		6E86E6B7289DC64700E0DC77 /* NotificationTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6B6289DC64700E0DC77 /* NotificationTimePickerView.swift */; };
 		6E86E6BB289DD8CD00E0DC77 /* NotificationTimePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E86E6BA289DD8CC00E0DC77 /* NotificationTimePicker.xib */; };
+		6E86E6BD289DEC4A00E0DC77 /* MakeAppointmentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6BC289DEC4A00E0DC77 /* MakeAppointmentEndpoint.swift */; };
+		6E86E6C1289DED7100E0DC77 /* AppointmentDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6C0289DED7100E0DC77 /* AppointmentDetailModel.swift */; };
+		6E86E6C3289DEE6100E0DC77 /* AppointmentToMake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6C2289DEE6100E0DC77 /* AppointmentToMake.swift */; };
+		6E86E6C5289DF02A00E0DC77 /* AppointmentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E86E6C4289DF02A00E0DC77 /* AppointmentDetailViewModel.swift */; };
 		6E913CDA287AEF07007ACE49 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CD9287AEF07007ACE49 /* AppointmentsViewController.swift */; };
 		6E913CDC287AF0CB007ACE49 /* AppointmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDB287AF0CB007ACE49 /* AppointmentsViewModel.swift */; };
 		6E913CE0287B575A007ACE49 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */; };
@@ -152,6 +156,10 @@
 		6E86E6B4289DBDA500E0DC77 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		6E86E6B6289DC64700E0DC77 /* NotificationTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimePickerView.swift; sourceTree = "<group>"; };
 		6E86E6BA289DD8CC00E0DC77 /* NotificationTimePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTimePicker.xib; sourceTree = "<group>"; };
+		6E86E6BC289DEC4A00E0DC77 /* MakeAppointmentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAppointmentEndpoint.swift; sourceTree = "<group>"; };
+		6E86E6C0289DED7100E0DC77 /* AppointmentDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailModel.swift; sourceTree = "<group>"; };
+		6E86E6C2289DEE6100E0DC77 /* AppointmentToMake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentToMake.swift; sourceTree = "<group>"; };
+		6E86E6C4289DF02A00E0DC77 /* AppointmentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewModel.swift; sourceTree = "<group>"; };
 		6E913CD9287AEF07007ACE49 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		6E913CDB287AF0CB007ACE49 /* AppointmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewModel.swift; sourceTree = "<group>"; };
 		6E913CDF287B575A007ACE49 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +279,7 @@
 				6E3BF667288223C700441C6F /* CityEndpoint.swift */,
 				6E3BF6772883721400441C6F /* StationsEndpoint.swift */,
 				6E86E6A12899656100E0DC77 /* StationOccupancyEndpoint.swift */,
+				6E86E6BC289DEC4A00E0DC77 /* MakeAppointmentEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -445,6 +454,8 @@
 		6E86E6A8289AAF1700E0DC77 /* AppointmentDetail */ = {
 			isa = PBXGroup;
 			children = (
+				6E86E6BF289DED4E00E0DC77 /* ViewModel */,
+				6E86E6BE289DED4500E0DC77 /* Model */,
 				6E86E6A9289AAF2400E0DC77 /* View */,
 			);
 			path = AppointmentDetail;
@@ -458,6 +469,23 @@
 				6E86E6B6289DC64700E0DC77 /* NotificationTimePickerView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6E86E6BE289DED4500E0DC77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E86E6C0289DED7100E0DC77 /* AppointmentDetailModel.swift */,
+				6E86E6C2289DEE6100E0DC77 /* AppointmentToMake.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6E86E6BF289DED4E00E0DC77 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6E86E6C4289DF02A00E0DC77 /* AppointmentDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6E913CD5287AEE9B007ACE49 /* Appointments */ = {
@@ -800,6 +828,8 @@
 				6E3BF68028837C3C00441C6F /* StationListViewController.swift in Sources */,
 				6E3BF6642881FA4A00441C6F /* UINavigationBar+Extensions.swift in Sources */,
 				6E3BF647287E380100441C6F /* DeleteAppointmentEndpoint.swift in Sources */,
+				6E86E6BD289DEC4A00E0DC77 /* MakeAppointmentEndpoint.swift in Sources */,
+				6E86E6C1289DED7100E0DC77 /* AppointmentDetailModel.swift in Sources */,
 				6E86E6B5289DBDA500E0DC77 /* PickerView.swift in Sources */,
 				6E3BF645287DAA0800441C6F /* Appointment.swift in Sources */,
 				6E31F2442878F10E0095098F /* Endpoint.swift in Sources */,
@@ -811,8 +841,10 @@
 				6E31F2482878F1960095098F /* HTTPClient.swift in Sources */,
 				6E913CE0287B575A007ACE49 /* AppointmentListViewController.swift in Sources */,
 				6E3BF6872884923700441C6F /* FilterViewController.swift in Sources */,
+				6E86E6C3289DEE6100E0DC77 /* AppointmentToMake.swift in Sources */,
 				6E31F2462878F11E0095098F /* HTTPRequest.swift in Sources */,
 				6E86E6A6289966EB00E0DC77 /* DateSelectionModel.swift in Sources */,
+				6E86E6C5289DF02A00E0DC77 /* AppointmentDetailViewModel.swift in Sources */,
 				6E3BF66E28822E4C00441C6F /* CityListViewController.swift in Sources */,
 				6E3BF640287C607500441C6F /* AppointmentsModel.swift in Sources */,
 				6E3BF642287C61D100441C6F /* AppointmentsEndpoint.swift in Sources */,

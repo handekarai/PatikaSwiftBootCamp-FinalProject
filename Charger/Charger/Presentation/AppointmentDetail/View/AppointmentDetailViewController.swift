@@ -31,15 +31,18 @@ class AppointmentDetailViewController: UIViewController  {
     var selectedTime: String!
     var selectedDate: String!
     var dateButtonText: String!
-    
     var notificationPickerView: NotificationTimePickerView!
     var popUp: PopUpView!
+    
+    var viewModel = AppointmentDetailViewModel()
     
     let notificaonTimes = ["5 dakika önce", "10 dakika önce", "15 dakika önce", "30 dakika önce", "1 saat önce", "2 saat önce","3 saat önce"]
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.delegate = self
         
         // notificationPicker popup
         self.notificationPickerView = NotificationTimePickerView(frame: self.view.frame)
@@ -138,6 +141,14 @@ class AppointmentDetailViewController: UIViewController  {
     @IBAction func notificationTimeButtonTapped(_ sender: Any) {
         showNotificationPicker()
     }
+    
+    
+    @IBAction func approveButtonTapped(_ sender: Any) {
+        
+        Task.init {
+            await viewModel.doAppointment(stationID: selectedStation.id, socketID: selectedSocket.socketID,timeSlot: selectedTime,appointmentDate:selectedDate)
+        }
+    }
 }
 
 extension AppointmentDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -214,5 +225,19 @@ extension AppointmentDetailViewController: UIPickerViewDelegate, UIPickerViewDat
             break
         }
         
+    }
+}
+
+extension AppointmentDetailViewController: AppointmentDetailViewModelDelegate{
+    func didAppointmentCreated(data: AppointmentSummary) {
+        DispatchQueue.main.async {
+            for controller in self.navigationController!.viewControllers as Array {
+                if controller.isKind(of: AppointmentsViewController.self) {
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+        }
+
     }
 }
