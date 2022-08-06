@@ -70,6 +70,7 @@ class AppointmentDetailViewController: UIViewController  {
         // set approveButton color
         approveButton.tintColor = Theme.lightButtonBgColor
         
+        // set labels texts
         addressLabel.text = selectedStation.geoLocation.address
         distanceLabel.text = " \(Int(selectedStation.distanceInKM ?? 0)) km"
         stationCodeLabel.text = selectedStation.stationCode
@@ -95,11 +96,38 @@ class AppointmentDetailViewController: UIViewController  {
         self.view.addSubview(notificationPickerView)
     }
     
+    // prepares and show the pop up
+    private func showPopUp(){
+        self.popUp = PopUpView(frame: self.view.frame)
+        self.popUp.titleLabel.text = "Geçersiz Bildirim Zamanı"
+        self.popUp.descriptionLabel.text = "Randevunuza kalan süre seçtiğiniz bildirim zamanından daha kısa"
+        self.popUp.firstOptionButton.addTarget(self, action: #selector(reSelectButtonTapped), for: .touchUpInside)
+        self.popUp.firstOptionButton.setTitle("DÜZENLE", for: .normal)
+        self.popUp.secondOptionButton.addTarget(self, action: #selector(continuedWithoutNotificationButtonTapped), for: .touchUpInside)
+        self.popUp.secondOptionButton.setTitle("BİLDİRİMSİZ DEVAM ET", for: .normal)
+
+        self.view.addSubview(popUp)
+    }
+    
     //MARK: - objc funcs
     // goes back to previous screen
     @objc func goToBack(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
+    
+    // hides notification button, sets switch off
+    @objc func continuedWithoutNotificationButtonTapped(_ sender: Any) {
+        self.popUp.removeFromSuperview()
+        self.notificationPickerView.removeFromSuperview()
+        notificationSwitch.setOn(false, animated: true)
+        notificationTimeButton.isHidden = true
+    }
+    
+    @objc func reSelectButtonTapped(_ sender: Any) {
+        self.popUp.removeFromSuperview()
+        showNotificationPicker()
+    }
+    
     @IBAction func switchTapped(_ sender: UISwitch) {
         if sender.isOn {
             notificationTimeButton.isHidden = false
@@ -127,6 +155,64 @@ extension AppointmentDetailViewController: UIPickerViewDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy H:mm"
+        let appointmentDateTime = formatter.date(from: "\(dateButtonText!) \(selectedTime!)")
+ 
+        // get time difference between appointment and now
+        let differenceInSeconds = (appointmentDateTime ?? Date()).timeIntervalSince(Date())
+        
+        switch notificaonTimes[row]{
+        case "5 dakika önce":
+            if differenceInSeconds < 5 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+        case "10 dakika önce":
+            if differenceInSeconds < 10 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+        case "15 dakika önce":
+            if differenceInSeconds < 15 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+
+        case "30 dakika önce":
+            if differenceInSeconds < 30 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+
+        case "1 saat önce":
+            if differenceInSeconds < 60 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+
+        case "2 saat önce":
+            if differenceInSeconds < 120 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+
+        case "3 saat önce":
+            if differenceInSeconds < 180 * 60 {
+                showPopUp()
+            }else{
+                notificationTimeButton.setTitle(notificaonTimes[row], for: .normal)
+            }
+        default:
+            break
+        }
+        
     }
 }
