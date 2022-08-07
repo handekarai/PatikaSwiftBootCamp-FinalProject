@@ -46,6 +46,7 @@ Because of time limit I could not finish time and date selection, appointment de
 Because of my bad luck, my file was deleted in the last 1 hour of deadline, i had to deal with the deleted codes ( I learned something in here, I have to always push my codes to my repository :) ), I just took the screenshots and wrote this readme file after midnight, sorry for it. But I pushed my codes before midnight. Thanks for your understanding.
 
 After deadline the project's missing screens are done. You can see them in the below.
+
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-26 at 17 00 42](https://user-images.githubusercontent.com/3129441/183301829-06d02c66-b407-44e9-9b8a-547374727ba7.gif)
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-07-26 at 17 02 33](https://user-images.githubusercontent.com/3129441/183301844-b5550e31-3304-4847-8f3b-966231157721.gif)
 ![Simulator Screen Recording - iPhone 13 Pro - 2022-08-03 at 15 16 16](https://user-images.githubusercontent.com/3129441/183301892-b4032023-0e63-4c6d-bee2-ad2c509fc6cd.gif)
