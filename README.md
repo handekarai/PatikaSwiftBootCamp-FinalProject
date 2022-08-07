@@ -44,3 +44,15 @@ Every screen has a module in project.
 Each module has own endpoint in network layer.
 Because of time limit I could not finish time and date selection, appointment detail and filter screens.
 Because of my bad luck, my file was deleted in the last 1 hour of deadline, i had to deal with the deleted codes ( I learned something in here, I have to always push my codes to my repository :) ), I just took the screenshots and wrote this readme file after midnight, sorry for it. But I pushed my codes before midnight. Thanks for your understanding.
+
+After deadline the project's missing screens are done. You can see them in the below.
+![Simulator Screen Recording - iPhone 13 Pro - 2022-07-26 at 17 00 42](https://user-images.githubusercontent.com/3129441/183301829-06d02c66-b407-44e9-9b8a-547374727ba7.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-07-26 at 17 02 33](https://user-images.githubusercontent.com/3129441/183301844-b5550e31-3304-4847-8f3b-966231157721.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-08-03 at 15 16 16](https://user-images.githubusercontent.com/3129441/183301892-b4032023-0e63-4c6d-bee2-ad2c509fc6cd.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-08-03 at 15 17 30](https://user-images.githubusercontent.com/3129441/183301909-b90635ae-29f5-4c60-b05f-0bfa38ee4359.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-08-03 at 15 18 26](https://user-images.githubusercontent.com/3129441/183301922-142d1ec3-a44e-43e4-8f1c-f410b30b9269.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-08-03 at 15 58 50](https://user-images.githubusercontent.com/3129441/183301930-384e6cab-0f9a-4c27-8412-11f9cd3f45fa.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-08-06 at 03 21 16](https://user-images.githubusercontent.com/3129441/183302060-46a0b438-9596-4370-9a36-4ed59c7c31cc.gif)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-08-07 at 13 07 46](https://user-images.githubusercontent.com/3129441/183302098-b6ece9e9-708d-47ed-8563-81dd9a53cadd.gif)
+
+
