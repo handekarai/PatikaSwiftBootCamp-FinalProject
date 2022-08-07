@@ -37,6 +37,7 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
     
     var selectedTime: String?
     var selectedDate: String?
+    var dateButtonText: String?
     var selectedSocket: SocketWithTime?
     var sockets: [SocketWithTime]?
 
@@ -195,6 +196,7 @@ class DateSelectionViewController: UIViewController, PickerViewDelegate {
             vc.selectedSocket = selectedSocket
             vc.selectedTime = selectedTime
             vc.selectedDate = selectedDate
+            vc.dateButtonText = dateButton.titleLabel?.text
             self.navigationController?.pushViewController(vc, animated: true)
         }
     
